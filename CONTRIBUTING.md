@@ -33,10 +33,10 @@ The app runs at the local URL Vite prints in the terminal.
 
 **Commands**
 
-| Command | What it does |
-|---|---|
-| `npm run dev` | Start the dev server |
-| `npm run build` | Create a production build |
+| Command           | What it does                       |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Start the dev server               |
+| `npm run build`   | Create a production build          |
 | `npm run preview` | Serve the production build locally |
 
 **Environment variables and secrets**
@@ -91,11 +91,11 @@ docs: add setup steps for .env
 - **Formatter:** Prettier. Config: `.prettierrc`.
 - **TypeScript:** `strict` mode on. Config: `tsconfig.json`.
 
-| Command | What it does |
-|---|---|
-| `npm run lint` | Check lint rules |
-| `npm run lint:fix` | Fix what ESLint can fix |
-| `npm run format` | Format all files with Prettier |
+| Command             | What it does                                       |
+| ------------------- | -------------------------------------------------- |
+| `npm run lint`      | Check lint rules                                   |
+| `npm run lint:fix`  | Fix what ESLint can fix                            |
+| `npm run format`    | Format all files with Prettier                     |
 | `npm run typecheck` | Run the TypeScript compiler without emitting files |
 
 Run `npm run lint` and `npm run typecheck` before you push.
@@ -116,27 +116,27 @@ Run `npm run lint` and `npm run typecheck` before you push.
 
 A change merges only when every gate below passes. Each gate names what enforces it. Gates not built yet name the sprint they land in and an owner.
 
-| Gate | Enforced by | Status |
-|---|---|---|
-| No direct pushes, one approving review | GitHub branch protection on `main` | Lands Sprint 1, owner `[TBD]` |
-| Lint, typecheck, tests, and build pass | GitHub Actions jobs `lint`, `typecheck`, `test`, `build` | Lands Sprint 1, owner `[TBD]` |
-| Docs updated | PR template checklist, checked by the reviewer | Lands Sprint 1, owner `[TBD]` |
-| Accessibility lint | `eslint-plugin-jsx-a11y` inside the `lint` job | Lands Sprint 1, owner `[TBD]` |
-| Coverage at 70% or higher | CI job `test:coverage` | Lands Sprint 2, owner `[TBD]` |
-| Dependency and secret scan | Dependabot, GitHub secret scanning, `npm audit` job | Lands Sprint 2, owner `[TBD]` |
+| Gate                                                   | Enforced by                                                  | Status                                    |
+| ------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------- |
+| No direct pushes, one approving review                 | GitHub branch protection on `main`                           | Lands Sprint 1, owner `[TBD]`             |
+| Lint, typecheck, tests, and build pass                 | GitHub Actions jobs `lint`, `typecheck`, `test`, `build`     | Lands Sprint 1, owner `[TBD]`             |
+| Docs updated                                           | PR template checklist, checked by the reviewer               | Lands Sprint 1, owner `[TBD]`             |
+| Accessibility lint                                     | `eslint-plugin-jsx-a11y` inside the `lint` job               | Lands Sprint 1, owner `[TBD]`             |
+| Coverage at 70% or higher                              | CI job `test:coverage`                                       | Lands Sprint 2, owner `[TBD]`             |
+| Dependency and secret scan                             | Dependabot, GitHub secret scanning, `npm audit` job          | Lands Sprint 2, owner `[TBD]`             |
 | Preview deploy before production, with a rollback path | Hosting platform previews, rollback steps in Release Process | `[TBD]`, depends on the production target |
 
 ## Contribution Norm
 
 **Floor:** Every contributor lands at least one piece of accepted work per sprint.
 
-| Kind of work | Lives in | Accepted when |
-|---|---|---|
-| Code and tests | GitHub repo | PR merged with one approval, CI green, linked to an issue |
-| Repo docs (`docs/`, README) | GitHub repo | PR merged with one approval |
-| Planning (issues, acceptance criteria, triage) | GitHub Issues and Projects | Issue has acceptance criteria and a teammate confirmed it is ready |
-| Notes, research, user study notes | Shared Google Drive | Saved in the team folder, reviewed by one teammate, linked from the sprint note |
-| Partner-facing work (deployment, data access) | `[TBD: partner's system]` | `[TBD]` |
+| Kind of work                                   | Lives in                   | Accepted when                                                                   |
+| ---------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------- |
+| Code and tests                                 | GitHub repo                | PR merged with one approval, CI green, linked to an issue                       |
+| Repo docs (`docs/`, README)                    | GitHub repo                | PR merged with one approval                                                     |
+| Planning (issues, acceptance criteria, triage) | GitHub Issues and Projects | Issue has acceptance criteria and a teammate confirmed it is ready              |
+| Notes, research, user study notes              | Shared Google Drive        | Saved in the team folder, reviewed by one teammate, linked from the sprint note |
+| Partner-facing work (deployment, data access)  | `[TBD: partner's system]`  | `[TBD]`                                                                         |
 
 Each person's contribution line in the sprint note matches this record.
 
@@ -173,14 +173,14 @@ Each person's contribution line in the sprint note matches this record.
 
 Update docs in the same PR as the change.
 
-| Change | Update |
-|---|---|
-| Setup or commands | `README.md` |
-| Scope or acceptance criteria | `docs/requirements.md` |
-| Architecture, interfaces, data model | `docs/design.md` |
-| New risk or changed risk | `docs/risks.md` |
-| Decision with trade-offs | `docs/adr/` |
-| Any user-facing change | `CHANGELOG.md` |
+| Change                               | Update                 |
+| ------------------------------------ | ---------------------- |
+| Setup or commands                    | `README.md`            |
+| Scope or acceptance criteria         | `docs/requirements.md` |
+| Architecture, interfaces, data model | `docs/design.md`       |
+| New risk or changed risk             | `docs/risks.md`        |
+| Decision with trade-offs             | `docs/adr/`            |
+| Any user-facing change               | `CHANGELOG.md`         |
 
 Code comments explain why, not what. Add TSDoc to exported functions and components.
 
