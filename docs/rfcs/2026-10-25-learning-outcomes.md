@@ -47,8 +47,6 @@ I propose that we go with Option A. It is the option with the fewest tradeoffs a
 
 ## Constraints
 
-Licensing, data use, IP, and the partner confidentiality boundary as they bear on this decision. If none apply, say so explicitly and briefly explain why.
-
 The project is not under any NDA and our project partner, Marnie Zirbel, has given us a lot of control and creative freedom over the project. Marnie will probably have some input and suggestions, so those could be our constraints, but they will be wanted and welcomed in order to help us develop a strong educational component for the project.
 
 ## Delegation and Validation
