@@ -8,7 +8,7 @@ This project is the Hatfield Live Data Public UI, a web app that shows four live
 
 We follow the [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Be respectful, assume good intent, and give feedback on the work, not the person.
 
-Report conduct concerns to `[TBD: reporting contact]`.
+Report conduct concerns to [Logan Jordan](mailto:jordanlo@oregonstate.edu).
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ The app runs at the local URL Vite prints in the terminal.
 - Vite exposes only variables that start with `VITE_`. Never put a secret in one, because it ships to the browser.
 - Data source URLs and any tokens are listed in `.env.example`.
 
-**Status:** The project scaffold lands in Sprint 1 (`[TBD: owner]`). Until then, the commands above describe the target setup.
+**Status:** The project scaffold lands in Sprint 1 (Logan). Until then, the commands above describe the target setup.
 
 ## Branching & Workflow
 
@@ -118,8 +118,8 @@ A change merges only when every gate below passes. Each gate names what enforces
 
 | Gate                                                   | Enforced by                                                  | Status                                    |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------- |
-| No direct pushes, one approving review                 | GitHub branch protection on `main`                           | Lands Sprint 1, owner `[TBD]`             |
-| Lint, typecheck, tests, and build pass                 | GitHub Actions jobs `lint`, `typecheck`, `test`, `build`     | Lands Sprint 1, owner `[TBD]`             |
+| No direct pushes, one approving review                 | GitHub branch protection on `main`                           | Lands Sprint 1, owner `Logan`             |
+| Lint, typecheck, tests, and build pass                 | GitHub Actions jobs `lint`, `typecheck`, `test`, `build`     | Lands Sprint 1, owner `[TBA]`             |
 | Docs updated                                           | PR template checklist, checked by the reviewer               | Lands Sprint 1, owner `[TBD]`             |
 | Accessibility lint                                     | `eslint-plugin-jsx-a11y` inside the `lint` job               | Lands Sprint 1, owner `[TBD]`             |
 | Coverage at 70% or higher                              | CI job `test:coverage`                                       | Lands Sprint 2, owner `[TBD]`             |
@@ -179,7 +179,7 @@ Update docs in the same PR as the change.
 | Scope or acceptance criteria         | `docs/requirements.md` |
 | Architecture, interfaces, data model | `docs/design.md`       |
 | New risk or changed risk             | `docs/risks.md`        |
-| Decision with trade-offs             | `docs/adr/`            |
+| Decision with trade-offs             | `docs/rfcs/`           |
 | Any user-facing change               | `CHANGELOG.md`         |
 
 Code comments explain why, not what. Add TSDoc to exported functions and components.
@@ -195,5 +195,5 @@ Code comments explain why, not what. Add TSDoc to exported functions and compone
 
 - **Questions about the code:** Open a GitHub issue or post in the team Discord.
 - **Urgent team matters:** Group text.
-- **Project partner, TA, and outside contacts:** Email. Contact details: `[TBD: contact list]`
+- **Project partner, TA, and outside contacts:** Email. Contact details: [Marnie Zirbel](mailto:marniejo.zirbel@oregonstate.edu), [Logan Sizemore](mailto:sizemolo@oregonstate.edu)
 - **Response window:** Within 2 days.
