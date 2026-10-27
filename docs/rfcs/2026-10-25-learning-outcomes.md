@@ -19,11 +19,11 @@ If the team did nothing at all regarding making a decision for this problem, tha
 
 ## Options
 
-### Option A: [Speak with project partner about educational component]
+### Option A: Speak with project partner about educational component
 
 This option involves speaking with our project partner, Marnie Zirbel, first and ask for her thoughts and opinions on how we should go about implementing the educational components of the website, and what learning outcomes she recommends. In a meeting with her, she expressed some thoughts on this already, and how she was planning on perhaps discussing the educational component with a K-12 educator board. Marnie is an expert in marine science, so she would provide very helpful insight for this aspect of the project, and guide us in the right direction. She would know what data to highlight and how to frame the data in a way to make it understandable and informative for people of ages 8+. Marnie has also lectured and taught audiences before, so her experience would be very valuable for this. She would know what information would be accurate or not, so she'd be a good fact checker and consultant. There's not really any major costs to this option, besides perhaps taking a bit of time to get all the information and recommendations we need from Marnie and/or a K-12 educator board.
 
-### Option B: [Add context and fun facts to the data displayed from the data streams]
+### Option B: Add context and fun facts to the data displayed from the data streams
 
 This option involves implementing the educational component and learning outcomes ourselves without consulting Marnie first, and then showing her our project as it progresses and once this part is done. The project is quite open ended, so Marnie would not likely have strong oppositions to this idea. As a team, we talked about how we could add contextual information to each data stream to describe the instrument that recorded the data and what the data means. We also thought it would be cool to include fun facts to each data stream to further educate users in an entertaining way. This option would likely be approved by Marnie and it has the benefit of informing users what each data stream represents, since without context, the data can be confusing - especially to someone without a marine science background. The costs would include the fact that we would do this option on our own first without consulting Marnie, being if she doesn't like how we did it, that'd be a good amount of progress down the drain. In addition, we would probably need to spend more time doing research and fact checking our information, since we do not want to include any context or fun facts that are inaccurate.
 
