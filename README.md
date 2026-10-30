@@ -16,10 +16,6 @@ _Screenshot will go here._
 - Pumped seawater
 - Underwater dock webcam
 
-## Project status
-
-This repository currently contains an early React, TypeScript, and Vite starter. The final interface and live data integrations are still being developed.
-
 ## Run locally
 
 You will need [Node.js](https://nodejs.org/) and npm.
@@ -30,6 +26,13 @@ npm run dev
 ```
 
 Vite will print a local address to open in your browser.
+
+To build and preview the production version locally:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Useful commands
 
@@ -47,6 +50,10 @@ npm run preview     # Preview the production build locally
 - Logan Jordan: [jordanlo@oregonstate.edu](mailto:jordanlo@oregonstate.edu)
 - John Paul Igloria: [igloriaj@oregonstate.edu](mailto:igloriaj@oregonstate.edu)
 
-## Project guidance
+## Contributing
 
-See [AGENTS.md](AGENTS.md) for project goals, accessibility expectations, and data-handling boundaries. See [docs/rfcs](docs/rfcs/) for current decision proposals.
+Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for setup and contribution guidelines.
+
+## License
+
+TBD
