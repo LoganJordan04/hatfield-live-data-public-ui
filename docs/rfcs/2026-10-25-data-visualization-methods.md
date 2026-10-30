@@ -6,14 +6,14 @@
      before or after the reviews. Then fill in the outcome and the decision date.
      The document stays where it is; this header is what makes it a record. -->
 
-| Field | Value |
-| --- | --- |
-| Author | JP Igloria |
-| Date | 2026-10-25 |
-| Status | Proposed |
-| Decision Date | |
-| Deciders | |
-| Superseded By | |
+| Field         | Value      |
+| ------------- | ---------- |
+| Author        | JP Igloria |
+| Date          | 2026-10-25 |
+| Status        | Proposed   |
+| Decision Date |            |
+| Deciders      |            |
+| Superseded By |            |
 
 ## Problem and Context
 
