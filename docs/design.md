@@ -13,6 +13,9 @@ Different data streams are accessed through different methods, and in different 
 - Pumped Water SCADA: retrieval method and format TBD
 - Underwater/Bay Webcams: Embedded live YouTube video stream.
 - Weather Station Data: json data via API if available, or scraped data from existing [html page](https://weather.hmsc.oregonstate.edu/) which updates at 5 minute intervals.
+## Deployment Shape
+- The hosting location is currently undecided, and options are being researched by the development team and project partner.
+- Deployment of the site and its pages is done through the Node API.
 ## Open Questions
 - How will SCADA and weather station data be accessed?
 - What library/package will be used for charts/visualization?
