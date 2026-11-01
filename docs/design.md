@@ -4,6 +4,7 @@ An education and exploration-focused web app for the Hatfield Marine Science Cen
 ## Architecture
 - Web App (React, Tailwind): The main landing page featuring the map, and individual modules containing data streams and other information. 
 - API Routes (Node): Navigation to landing page and modules.
+![System overview diagram](./HatField_UI_diagram.drawio.svg)
 ## Interfaces
 - REST API: routes for each module, e.g. /modules/{module_name}
 - Data Visualizations: charts generated using a react-compatible library (HighCharts or ReCharts)
