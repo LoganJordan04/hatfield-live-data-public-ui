@@ -1,19 +1,19 @@
 # RFC: Learning Outcomes
 
-| Field | Value |
-| --- | --- |
-| Author | Alexander Jiang |
-| Date | 2026-10-25 |
-| Status | Proposed |
-| Decision Date | (fill when decided) |
-| Deciders | (who agreed to the outcome) |
-| Superseded By | N/A |
+| Field         | Value                       |
+| ------------- | --------------------------- |
+| Author        | Alexander Jiang             |
+| Date          | 2026-10-25                  |
+| Status        | Proposed                    |
+| Decision Date | (fill when decided)         |
+| Deciders      | (who agreed to the outcome) |
+| Superseded By | N/A                         |
 
 ## Problem and Context
 
-The Hatfield Live Data Public UI project involves making a website to display four of the Hatfield Marine Science Center's data streams in one place, making it easy and accessible for users to see all of the relevant information from the center's servers and websites. One of the main goals of the project is to incorporate a K-12 educational component in some way so that the general public of ages 8+ will learn something from looking at our website. There are various ways to go about it, and we will need to ensure that the extra information we add to provide context for the data streams needs to be accurate. The decision we need to make is to decide on what sort of learning outcomes we want users to take away from after visiting our site, and how to go on about implementing features that enable users to meet those learning outcomes. 
+The Hatfield Live Data Public UI project involves making a website to display four of the Hatfield Marine Science Center's data streams in one place, making it easy and accessible for users to see all of the relevant information from the center's servers and websites. One of the main goals of the project is to incorporate a K-12 educational component in some way so that the general public of ages 8+ will learn something from looking at our website. There are various ways to go about it, and we will need to ensure that the extra information we add to provide context for the data streams needs to be accurate. The decision we need to make is to decide on what sort of learning outcomes we want users to take away from after visiting our site, and how to go on about implementing features that enable users to meet those learning outcomes.
 
-This decision does not have to be decided asap, but it is a good idea to think about it now before it's too late. The educational component of the project could be added later on after we get the base requirements implemented (incorporating the four data streams on one website). Reaching a decision early on though will help drive our decisions for other aspects of the project and make it easier to develop the educational component/learning outcomes when we get to that stage, since we'd know exactly what to do by then. It is better to try to reach a decision sooner rather than later, especially this term when we have the most opportunity for planning requirements and specifications of the project out. 
+This decision does not have to be decided asap, but it is a good idea to think about it now before it's too late. The educational component of the project could be added later on after we get the base requirements implemented (incorporating the four data streams on one website). Reaching a decision early on though will help drive our decisions for other aspects of the project and make it easier to develop the educational component/learning outcomes when we get to that stage, since we'd know exactly what to do by then. It is better to try to reach a decision sooner rather than later, especially this term when we have the most opportunity for planning requirements and specifications of the project out.
 
 If the team did nothing at all regarding making a decision for this problem, that would not be good. Technically, the educational component of the project is a stretch goal, and just displaying the four data streams in one place would suffice as the definition of done, but the team and our project partner would really like to have this be incorporated. We feel that we'd have a lot of extra time to play around with the website and add extra features to it once we get the core requirements done, and developing a system that teaches users something would be quite fulfilling to us. Nothing bad would happen if we didn't add an educational component in, besides the users not really taking anything away after visiting the site. But having learning outcomes would help give the website a purpose and help retain user attention and engagement.
 
@@ -33,7 +33,7 @@ Doing nothing and not implementing some sort of educational component/learning o
 
 ## Analysis
 
-It is a bit tricky to talk about the technical tradeoffs for this sort of decision, since it is not a technical topic and is specific to this project. I will try my best though. 
+It is a bit tricky to talk about the technical tradeoffs for this sort of decision, since it is not a technical topic and is specific to this project. I will try my best though.
 
 For Option A, it is the most surefire way to ensure that we are developing the project in a way that Marnie likes and agrees with. We're not exactly sure what she would recommend but we feel that it would be pretty similar to Option B. If the K-12 educator board gets involved, the learning outcomes could get pretty complex and involved. With an official structure though, maintainability would likely be simple. I'm not sure what structure that would entail though, as I am not on the K-12 educator board. The only cost of this option is that it could take a bit of time to sort everything out and cover all the specifics with Marnie.
 
@@ -43,7 +43,7 @@ For Option C, doing nothing saves us the most time, but it would mean an importa
 
 ## Recommendation and Verification Plan
 
-I propose that we go with Option A. It is the option with the fewest tradeoffs and makes the most sense, talking it through with our project partner first before implementing the educational aspect ourselves. Our project partner came up with the project idea, so we would want to run through big decisions like this through her first, especially since she has teaching experience and a marine science background. The team will know this was the right choice straight away, since our project partner Marnie would be directly giving us suggestions and recommendations on how to handle the educational component. We would show her our progress regularly on our decided course of action and confirm that we're on the right track. In the testing stage and when we're gathering user feedback, we could quiz users once they go through the website to see if they learned anything from it. If they answered our questions correctly, then we succeeded with teaching people through our site. 
+I propose that we go with Option A. It is the option with the fewest tradeoffs and makes the most sense, talking it through with our project partner first before implementing the educational aspect ourselves. Our project partner came up with the project idea, so we would want to run through big decisions like this through her first, especially since she has teaching experience and a marine science background. The team will know this was the right choice straight away, since our project partner Marnie would be directly giving us suggestions and recommendations on how to handle the educational component. We would show her our progress regularly on our decided course of action and confirm that we're on the right track. In the testing stage and when we're gathering user feedback, we could quiz users once they go through the website to see if they learned anything from it. If they answered our questions correctly, then we succeeded with teaching people through our site.
 
 ## Constraints
 
