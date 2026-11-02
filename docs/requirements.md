@@ -32,6 +32,7 @@ The Hatfield Marine Science Center hosts four live data streams on various serve
 ## Non-goals
 
 - NG-1: The tech stack we are using.
+
 - NG-2: Creating a mobile app in addition to a website.
 
 
