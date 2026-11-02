@@ -7,7 +7,6 @@ function App() {
         backgroundImage: "url('/images/hatfield-seawater-system-map.webp')",
         backgroundSize: "cover",
       }}
-    />
   );
 }
 
