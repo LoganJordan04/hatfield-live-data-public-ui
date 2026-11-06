@@ -6,6 +6,6 @@ import Weather from "./pages/weather.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Weather />
+    <App/>
   </StrictMode>,
 );
