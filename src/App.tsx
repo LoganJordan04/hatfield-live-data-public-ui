@@ -1,13 +1,15 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import WaterQuality from "./pages/WaterQuality";
+
 function App() {
   return (
-    <main
-      aria-label="Hatfield seawater system map"
-      className="min-h-screen w-full bg-white bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/hatfield-seawater-system-map.webp')",
-        backgroundSize: "cover",
-      }}
-    />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/WaterQuality" element={<WaterQuality />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
