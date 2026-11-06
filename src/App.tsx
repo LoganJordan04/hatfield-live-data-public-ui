@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Seawater from "./pages/Seawater";
+import WaterQuality from "./pages/WaterQuality";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/seawater" element={<Seawater />} />
+        <Route path="/WaterQuality" element={<WaterQuality />} />
       </Routes>
     </BrowserRouter>
   );

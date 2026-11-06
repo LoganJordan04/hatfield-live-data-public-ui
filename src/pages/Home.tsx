@@ -11,7 +11,7 @@ function Home() {
       }}
     >
       <div className="absolute left-[45%] top-[90%]">
-        <ModuleLink moduleName="Seawater" />
+        <ModuleLink moduleName="Yaquina Water Quality" moduleRoute="/WaterQuality" />
       </div>
     </main>
   );

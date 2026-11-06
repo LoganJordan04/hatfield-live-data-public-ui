@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Seawater() {
+export default function WaterQuality() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Seawater() {
 
   return (
     <div>
-      <h1>Seawater Data</h1>
+      <h1>Yaquina Water Quality Data</h1>
       {data ? (
         <pre>{JSON.stringify(data, null, 2)}</pre>
       ) : (
