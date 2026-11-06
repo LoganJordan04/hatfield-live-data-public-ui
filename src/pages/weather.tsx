@@ -1,64 +1,54 @@
-import React, { useState } from 'react';
+import {useState, useEffect} from 'react';
+import { fetchLatestWeather, type WeatherRecord } from '../util/fetchWeather';
 
-export default function Weather() {
-    const weatherUrl = 'https://ahi.ceoas.oregonstate.edu/'
-    const [data, setData] = useState<any>(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-
-    const handleScrape = async () => {
-        setLoading(true);
-        setError(null);
-        setData(null);
-
-        try {
-            const response = await fetch('/api/scrape', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                // Send the hardcoded URL in the body
-                body: JSON.stringify({ url: weatherUrl })
-            });
-
-            const result = await response.json();
-            if (!response.ok) throw new Error(result.error || 'Failed to scrape');
-            
-            setData(result);
-        } catch (err: any) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
+export default function WeatherPage() {
+    const [weather, setWeather] = useState<WeatherRecord | null>(null);
+    const [fetchInterval, setFetchInterval] = useState(0);
+    const [timer, setTimer] = useState(0);
+    const fetchWeather = async () => {
+        const weatherData = await fetchLatestWeather();
+        setWeather(weatherData);
     };
 
+    useEffect(() => {
+        fetchWeather(); // Initial fetch
+        const interval = setInterval(() => {
+            setFetchInterval(prevInterval => prevInterval + 1);
+            fetchWeather();
+        }, 900000); // 15 minutes in milliseconds
+        const timer = setInterval(() => {
+            setTimer(prevTimer => prevTimer + 1);
+        }, 1000); // Update timer every second
+        return () => {
+            clearInterval(interval);
+            clearInterval(timer);
+        }; // Cleanup on unmount
+    }, []);
+
     return (
-        <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-            <h2>Scraper Test</h2>
-            <p>Target URL: <code>{weatherUrl}</code></p>
-            
-            <button 
-                onClick={handleScrape} 
-                disabled={loading}
-                style={{ padding: '10px 20px', cursor: 'pointer' }}
-            >
-                {loading ? 'Scraping...' : 'Scrape URL'}
-            </button>
-
-            {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-
-            {data && (
-                <div style={{ marginTop: '1rem', background: '#f4f4f4', padding: '1rem', borderRadius: '5px' }}>
-                    <h3>Results:</h3>
-                    <p><strong>Title:</strong> {data.title}</p>
-                    <p><strong>Headings:</strong></p>
-                    <ul>
-                        {data.headings?.map((h: string, index: number) => (
-                            <li key={index}>{h}</li>
-                        ))}
-                    </ul>
+        <div>
+            <h1>Weather Data</h1>
+            <h1>Updates In: {Math.round((9000000 - timer * 1000) / 600000)} minutes</h1>
+            {weather ? (
+                <div>
+                    <p><strong>Timestamp:</strong> {weather.TIMESTAMP}</p>
+                    <p><strong>Average Wind Speed:</strong> {weather.AWS} MPH</p>
+                    <p><strong>Average Wind Direction:</strong> {weather.AWD}°</p>
+                    <p><strong>Wind Gust:</strong> {weather.Gust} MPH</p>
+                    <p><strong>Average Air Temperature:</strong> {weather.AvgAT} °F</p>
+                    <p><strong>Max Air Temperature:</strong> {weather.MaxAT} °F</p>
+                    <p><strong>Min Air Temperature:</strong> {weather.MinAT} °F</p>
+                    <p><strong>Average Relative Humidity:</strong> {weather.AvgRH} %RH</p>
+                    <p><strong>Barometric Pressure:</strong> {weather.AvgBP} inHg</p>
+                    <p><strong>Total Rainfall (10 min):</strong> {weather.TotRN_5} in</p>
+                    <p><strong>Daily Rainfall:</strong> {weather.DailyRN} in</p>
                 </div>
+            ) : (
+                <p>Loading weather data...</p>
             )}
+            <button onClick={() => window.location.href = '/'} className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
+                Home
+            </button>
         </div>
     );
 }
