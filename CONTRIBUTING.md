@@ -8,14 +8,14 @@ This project is the Hatfield Live Data Public UI, a web app that shows four live
 
 We follow the [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Be respectful, assume good intent, and give feedback on the work, not the person.
 
-Report conduct concerns to `[TBD: reporting contact]`.
+Report conduct concerns to [Logan Jordan](mailto:jordanlo@oregonstate.edu).
 
 ## Getting Started
 
 **Prerequisites**
 
 - Git
-- Node.js, current LTS (version pinned in `.nvmrc`)
+- Node.js
 - npm (ships with Node)
 
 **Setup**
@@ -23,9 +23,6 @@ Report conduct concerns to `[TBD: reporting contact]`.
 ```bash
 git clone https://github.com/LoganJordan04/hatfield-live-data-public-ui.git
 cd hatfield-live-data-public-ui
-nvm use
-npm install
-cp .env.example .env
 npm run dev
 ```
 
@@ -39,34 +36,20 @@ The app runs at the local URL Vite prints in the terminal.
 | `npm run build`   | Create a production build          |
 | `npm run preview` | Serve the production build locally |
 
-**Environment variables and secrets**
-
-- Put local configuration in `.env`. Never commit it.
-- Commit `.env.example` with placeholder values only.
-- Vite exposes only variables that start with `VITE_`. Never put a secret in one, because it ships to the browser.
-- Data source URLs and any tokens are listed in `.env.example`.
-
-**Status:** The project scaffold lands in Sprint 1 (`[TBD: owner]`). Until then, the commands above describe the target setup.
+No environment file is currently required for the app. If configuration is added, document the required variable names and safe local setup here; never put secrets in client-side `VITE_` variables.
 
 ## Branching & Workflow
 
 - **Model:** GitHub Flow. `main` is the default branch and is always releasable.
-- **Protection:** No direct pushes to `main`. Every change goes through a pull request.
-- **Branch names:** `feature/short-description`, `fix/short-description`, `docs/short-description`, `chore/short-description`.
-- **Keep branches short-lived.** Merge within a few days.
-- **Rebase vs. merge:** Rebase your branch onto `main` before you open a PR and again if `main` moves. Merge PRs with squash merge so `main` stays linear.
+- **Pull request target:** `main` (the CI workflow runs for pull requests targeting `main`).
+- **Branch names:** Use a short descriptive name, such as `feature/weather-card` or `docs/contributing-guide`.
+- **Keep branches focused** and update them from `main` as needed.
+- **Merge method and branch protection:** Follow the options enabled in the GitHub repository; these settings are not defined in the checked-in files.
 
 ## Issues & Planning
 
-- **Tracker:** GitHub Issues, with one GitHub Projects board (Backlog, Ready, In Progress, In Review, Done).
-- **Sprints:** Two weeks each. Plan at the start and review at the end.
-- **Filing an issue:** Use the issue template. Include a summary, acceptance criteria, and notes. Every PR links to an issue.
-- **Labels:**
-  - Type: `type:feature`, `type:bug`, `type:docs`, `type:chore`
-  - Priority: `priority:high`, `priority:medium`, `priority:low`
-  - Data stream: `data:weather`, `data:water-quality`, `data:seawater`, `data:webcam`
-- **Estimation:** T-shirt sizes (S, M, L), set during sprint planning. Split anything larger than L.
-- **Triage and assignment:** The team triages new issues at sprint planning. Each person self-assigns from Ready. One assignee per issue. Every item in the current sprint has an owner and a status.
+- Track work in GitHub Issues when an issue is useful. No issue form or issue template is currently checked in.
+- Describe the problem or goal, relevant context, and how to tell the work is complete. Link the issue from the pull request when applicable.
 
 ## Commit Messages
 
@@ -98,102 +81,74 @@ docs: add setup steps for .env
 | `npm run format`    | Format all files with Prettier                     |
 | `npm run typecheck` | Run the TypeScript compiler without emitting files |
 
-Run `npm run lint` and `npm run typecheck` before you push.
+Run `npm run lint`, `npm run typecheck`, and `npm run build` before you open a pull request. The build is the check currently run by CI.
 
 ## Testing
 
-- **Unit and component tests:** Vitest with React Testing Library. Run with `npm test`.
-- **Data layer:** Mock the four data streams. Tests never call live servers.
-- **Accessibility:** `eslint-plugin-jsx-a11y` runs inside `lint`. Add `axe` checks on key pages as they appear.
-- **End-to-end tests:** `[TBD: E2E testing decision]`
-- **Coverage:** 70% or higher on lines. Run `npm run test:coverage`.
-- **Tests are mandatory when:**
-  - You fix a bug (add a regression test).
-  - You add a component or data function (add at least one test).
-  - You change behavior that a test already covers (update that test).
+There is no test runner or test script configured in `package.json` yet. Do not use `npm test` or `npm run test:coverage`; those commands are not defined. CI currently verifies the production build. When adding behavior, include appropriate tests with the change once a test framework is introduced, and document its command here.
 
 ## Definition of Done
 
-A change merges only when every gate below passes. Each gate names what enforces it. Gates not built yet name the sprint they land in and an owner.
+A change is ready to merge when its pull request has been reviewed and the CI production build passes. The table separates current checks from checks that are not configured yet.
 
-| Gate                                                   | Enforced by                                                  | Status                                    |
-| ------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------- |
-| No direct pushes, one approving review                 | GitHub branch protection on `main`                           | Lands Sprint 1, owner `[TBD]`             |
-| Lint, typecheck, tests, and build pass                 | GitHub Actions jobs `lint`, `typecheck`, `test`, `build`     | Lands Sprint 1, owner `[TBD]`             |
-| Docs updated                                           | PR template checklist, checked by the reviewer               | Lands Sprint 1, owner `[TBD]`             |
-| Accessibility lint                                     | `eslint-plugin-jsx-a11y` inside the `lint` job               | Lands Sprint 1, owner `[TBD]`             |
-| Coverage at 70% or higher                              | CI job `test:coverage`                                       | Lands Sprint 2, owner `[TBD]`             |
-| Dependency and secret scan                             | Dependabot, GitHub secret scanning, `npm audit` job          | Lands Sprint 2, owner `[TBD]`             |
-| Preview deploy before production, with a rollback path | Hosting platform previews, rollback steps in Release Process | `[TBD]`, depends on the production target |
+| Gate                                                 | Enforced by                                                      | Status                                 |
+| ---------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |
+| Production build succeeds                            | GitHub Actions CI workflow: `npm ci` followed by `npm run build` | Runs on pull requests targeting `main` |
+| Change is reviewed and documentation is kept current | Pull request author and reviewer; repository review rules apply  | Review settings are managed in GitHub  |
+| Tests and additional automated checks                | No test suite or corresponding CI jobs are currently configured  | Add and document when introduced       |
 
 ## Contribution Norm
 
 **Floor:** Every contributor lands at least one piece of accepted work per sprint.
 
-| Kind of work                                   | Lives in                   | Accepted when                                                                   |
-| ---------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------- |
-| Code and tests                                 | GitHub repo                | PR merged with one approval, CI green, linked to an issue                       |
-| Repo docs (`docs/`, README)                    | GitHub repo                | PR merged with one approval                                                     |
-| Planning (issues, acceptance criteria, triage) | GitHub Issues and Projects | Issue has acceptance criteria and a teammate confirmed it is ready              |
-| Notes, research, user study notes              | Shared Google Drive        | Saved in the team folder, reviewed by one teammate, linked from the sprint note |
-| Partner-facing work (deployment, data access)  | `[TBD: partner's system]`  | `[TBD]`                                                                         |
-
-Each person's contribution line in the sprint note matches this record.
+| Kind of work                      | Lives in                   | Accepted when                                    |
+| --------------------------------- | -------------------------- | ------------------------------------------------ |
+| Code and repository documentation | GitHub repository          | Pull request reviewed and merged                 |
+| Work planning and defect reports  | GitHub Issues, when useful | Issue describes the goal and completion criteria |
 
 ## Pull Requests & Reviews
 
-- **Template:** Use the PR template. Include a summary, the linked issue, screenshots for UI changes, and the checklist.
-- **Size:** Aim for under 400 changed lines. Split larger work.
-- **Approval:** One approval from a teammate who did not write the code. Authors do not merge their own PRs without approval.
-- **Review window:** Reviewers respond within 2 days.
-- **Reviewer checks:** The change does what the issue asks, tests cover it, docs are updated, and the UI works with a keyboard.
-- **Required status checks:** `lint`, `typecheck`, `test`, `build`.
-- **Merge:** Squash merge. Delete the branch after merging.
+- Open a pull request against `main` and explain what changed and why. Link a related issue when one exists.
+- Include screenshots for visual changes and note relevant manual checks.
+- No pull request template is currently checked in. No approval count, response window, or merge method is specified in repository files; follow the repository's GitHub settings and team practice.
+- Review the change for correctness, accessibility, and updated documentation. Resolve review feedback before merging.
 
 ## CI/CD
 
 - **Platform:** GitHub Actions.
-- **Pipeline definition:** `.github/workflows/ci.yml`
-- **Mandatory jobs:** `lint`, `typecheck`, `test`, `build`. Coverage and security jobs join them as they land per the Definition of Done.
+- **Workflow:** `.github/workflows/ci.yml` (GitHub Actions; pull requests targeting `main`).
+- **Steps:** Checkout, set up Node.js 20 with npm cache, run `npm ci`, then `npm run build`.
+- **Local equivalent:** `npm ci` and `npm run build`.
 - **Viewing logs:** Open the Actions tab, pick the run, then pick the job.
 - **Re-running jobs:** In the run, select Re-run jobs.
-- **Before merge:** All required jobs pass and the PR has one approval.
-- **Before release:** `main` is green and the changelog is updated.
-- **Deployment:** `[TBD: depends on the production target agreed with the partner]`
+- **Before merge:** Check that the CI build passes and address review feedback. Any additional approval rules are configured in GitHub.
+- No deployment or release workflow is documented in the repository.
 
 ## Security & Secrets
 
-- **Reporting a vulnerability:** Use GitHub's private vulnerability reporting on this repo. Do not open a public issue.
-- **Prohibited:** No hard-coded keys, tokens, or passwords. Use `.env` for local configuration.
-- **Leaks:** Rotate any leaked secret right away and say so in the commit that removes it.
-- **Dependencies:** Dependabot alerts and updates are on. Review and merge them each sprint.
-- **Scanning:** GitHub secret scanning and `npm audit` in CI, per the Definition of Done.
+- Never commit credentials, API keys, tokens, `.env` files, internal hostnames, IP addresses, or network details. See the confidentiality boundary in `AGENTS.md`.
+- Treat SCADA/Facilities and Data Center VM sources as internal; access is read-only unless the stream owner explicitly approves otherwise.
+- If a secret is exposed, notify the team promptly so it can be revoked or rotated. Do not repeat it in an issue or commit message.
+- No dependency or secret scanning job is defined in the supplied CI workflow.
 
 ## Documentation Expectations
 
 Update docs in the same PR as the change.
 
-| Change                               | Update                 |
-| ------------------------------------ | ---------------------- |
-| Setup or commands                    | `README.md`            |
-| Scope or acceptance criteria         | `docs/requirements.md` |
-| Architecture, interfaces, data model | `docs/design.md`       |
-| New risk or changed risk             | `docs/risks.md`        |
-| Decision with trade-offs             | `docs/adr/`            |
-| Any user-facing change               | `CHANGELOG.md`         |
+| Change                             | Update                                     |
+| ---------------------------------- | ------------------------------------------ |
+| Setup or commands                  | `README.md` and this guide, as applicable  |
+| Architecture or interfaces         | `docs/design.md`                           |
+| Technical decision with trade-offs | Add a document under `docs/rfcs/`          |
+| Other affected guidance            | Update the relevant existing documentation |
 
 Code comments explain why, not what. Add TSDoc to exported functions and components.
 
 ## Release Process
 
-- **Versioning:** Semantic Versioning. Tag releases like `v0.1.0`.
-- **Changelog:** Generated from merged PR titles at release time and saved in `CHANGELOG.md`.
-- **Packaging and publishing:** `[TBD: depends on the production target]`
-- **Rollback:** `[TBD: depends on the production target]`
+No release, deployment, versioning, or rollback process is currently defined in the repository. Update this section when a release target and process are established.
 
 ## Support & Contact
 
-- **Questions about the code:** Open a GitHub issue or post in the team Discord.
-- **Urgent team matters:** Group text.
-- **Project partner, TA, and outside contacts:** Email. Contact details: `[TBD: contact list]`
-- **Response window:** Within 2 days.
+- **Questions about contributing:** Open a GitHub issue with the question and relevant context.
+- **Response time:** Allow time for a maintainer to review and follow up if needed.
