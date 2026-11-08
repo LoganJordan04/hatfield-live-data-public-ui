@@ -9,7 +9,7 @@ _Screenshot will go here._
 <!-- Add a screenshot or concept image at `docs/images/project-preview.png`, then uncomment this line. -->
 <!-- ![Preview of the Hatfield Live Data Public UI](docs/images/project-preview.png) -->
 
-[View Interactive Figma Prototype](https://www.figma.com/design/zbNyZ4uyKfRHmYtXFDH9lE/Hatfield-UI?node-id=0-1&t=kEzPm0jlbEhZC5j6-1)
+[View Interactive Figma Prototype](https://www.figma.com/proto/zbNyZ4uyKfRHmYtXFDH9lE/Hatfield-UI?node-id=9-963&p=f&viewport=62%2C144%2C0.55&t=10omWqgExNWlnikl-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9%3A963&page-id=0%3A1)
 
 ## Data streams
 
