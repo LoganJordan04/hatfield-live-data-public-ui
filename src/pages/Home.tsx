@@ -10,7 +10,7 @@ function Home() {
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute left-[30%] top-[40%]">
+      <div className="absolute left-[45%] top-[89%]">
         <ModuleLink moduleName="Yaquina Water Quality" moduleRoute="/WaterQuality" />
       </div>
       <div className="absolute left-[45%] top-[95%]">
