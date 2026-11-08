@@ -9,6 +9,8 @@ _Screenshot will go here._
 <!-- Add a screenshot or concept image at `docs/images/project-preview.png`, then uncomment this line. -->
 <!-- ![Preview of the Hatfield Live Data Public UI](docs/images/project-preview.png) -->
 
+[View Interactive Figma Prototype](https://www.figma.com/design/zbNyZ4uyKfRHmYtXFDH9lE/Hatfield-UI?node-id=0-1&t=kEzPm0jlbEhZC5j6-1)
+
 ## Data streams
 
 - Weather station
