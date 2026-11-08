@@ -10,8 +10,11 @@ function Home() {
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute left-[45%] top-[90%]">
+      <div className="absolute left-[45%] top-[89%]">
         <ModuleLink moduleName="Yaquina Water Quality" moduleRoute="/WaterQuality" />
+      </div>
+      <div className="absolute left-[45%] top-[95%]">
+        <ModuleLink moduleName="Underwater Dock Webcam" moduleRoute="/DockWebcam" />
       </div>
     </main>
   );
