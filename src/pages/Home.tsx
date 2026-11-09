@@ -16,6 +16,9 @@ function Home() {
       <div className="absolute left-[45%] top-[95%]">
         <ModuleLink moduleName="Underwater Dock Webcam" moduleRoute="/DockWebcam" />
       </div>
+      <div className="absolute left-[45%] top-[101%]">
+        <ModuleLink moduleName="Weather Data" moduleRoute="/Weather" />
+      </div>
     </main>
   );
 }
