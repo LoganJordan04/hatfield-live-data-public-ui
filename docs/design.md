@@ -8,7 +8,7 @@ An education and exploration-focused web app for the Hatfield Marine Science Cen
 
 - Web App (React, Tailwind): The main landing page featuring the map, and individual modules containing data streams and other information.
 - Routing (React-Router-Dom): Navigation to landing page and modules.
-![System overview diagram](./diagrams/HatField_UI_diagram.drawio.svg)
+  ![System overview diagram](./diagrams/HatField_UI_diagram.drawio.svg)
 
 ## Interfaces
 

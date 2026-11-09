@@ -4,11 +4,9 @@ Project 23: Hatfield Live Data Public UI
 
 Levi Cook <cooklev@oregonstate.edu>, Alexander Jiang <jiangal@oregonstate.edu>, Logan Jordan <jordanlo@oregonstate.edu>, John Paul Igloria <igloriaj@oregonstate.edu>
 
-
 # Repository URL
 
 https://github.com/LoganJordan04/hatfield-live-data-public-ui
-
 
 # Commit to grade
 
@@ -16,47 +14,46 @@ https://github.com/LoganJordan04/hatfield-live-data-public-ui/commit/e78489c7811
 
 Hash: e78489c
 
-
 # Milestones
 
 ## CI
+
 Currently there is a basic CI in place in .github/workflows/ci.yml and a failure can be seen here https://github.com/LoganJordan04/hatfield-live-data-public-ui/pull/22
 
 ## Board
+
 https://github.com/users/LoganJordan04/projects/2/views/1
 Currently our board shows the backlog of what we completed/set up for this repo checkpoint assignment. In the future this milestone will be kept up to date by the entire team as we begin development and assigning more strict roles.
 
 ## Production Target
+
 Our walking skeleton lives in /src/App.tsx and main.tsx here our code can be deployed using npm run dev to view the code working locally. Currently we do not have a working or planned URL so for now it will need to be run locally. We need to discuss more in depth with our project parter how the web app will be deployed and we plan to have this done by the end of Fall Term. As a team we agree that deployed in fall will look like having a landing page containing buttons that lead to a new page that displays the appropriate data stream. We are more focused on functionality this term then style/UI.
 
 ## Approval
+
 Risks 1 and 2 in risks.md both state that we are needing information from our project partner and other outside sources. As of 10/30/26 we have reached out to both parties and are waiting on their replies before moving forward the code for the weather station and pumped seawater data streams. These risks are owned by Logan and Levi respectively.
 
 ## Inherited Code Base Audit
-N/A, since we are starting this project from scratch. Any APIs we will be using, we will not have access to the code/have the ability to change anything about it.
 
+N/A, since we are starting this project from scratch. Any APIs we will be using, we will not have access to the code/have the ability to change anything about it.
 
 # Requirements
 
 ## Problem statement
 
-The Hatfield Marine Science Center hosts four live data streams on various servers and websites: (Weather Station, Yaquina Water Quality, Pumped Seawater SCADA, OSU underwater dock webcam). Part of Hatfield's mission is to make marine science accessible and relevant to the general public. Currently, the four data streams are scattered about, making it hard and inconvenient to see the data that each server/website hosts. Visitors to the HMSC also don't typically see this data, so it would be nice to consolidate the data in one place as part of an exhibit. Creating a user friendly website that displays all four data streams in one place will make it easier for people to access/see all of that data, and it will encourage visitors to explore and think about how the data streams might be related. 
-
+The Hatfield Marine Science Center hosts four live data streams on various servers and websites: (Weather Station, Yaquina Water Quality, Pumped Seawater SCADA, OSU underwater dock webcam). Part of Hatfield's mission is to make marine science accessible and relevant to the general public. Currently, the four data streams are scattered about, making it hard and inconvenient to see the data that each server/website hosts. Visitors to the HMSC also don't typically see this data, so it would be nice to consolidate the data in one place as part of an exhibit. Creating a user friendly website that displays all four data streams in one place will make it easier for people to access/see all of that data, and it will encourage visitors to explore and think about how the data streams might be related.
 
 ## Functional requirements
 
 - FR-1 (Must: it is part of the UI that our displayed data streams will be accessed and built from): A user sees a graphic map of the Hatfield Marine Science Center when they first access the website. Acceptance: The map is visible on the website.
 
-
 ## Non-functional requirements
 
 - NFR-1 (Should: it is frustrating to use a slow website): The website and its elements loads in under 2 seconds on any Wi-Fi network.
 
-
 ## Constraints
 
 - C-1: The map of the Hatfield Marine Science Center comes from our project partner, Marnie Zirbel.
-
 
 ## Success metrics
 
@@ -66,13 +63,11 @@ The Hatfield Marine Science Center hosts four live data streams on various serve
 
 - SM-3: Users that use the website in general: Users are engaged and easily able to see the data from the 4 data streams (Conduct surveys with general public and visitors at the HMSC to gather responses and reactions to the website).
 
-
 ## Non-goals
 
 - NG-1: The tech stack we are using.
 
 - NG-2: Creating a mobile app in addition to a website.
-
 
 ## Open questions
 
@@ -80,53 +75,46 @@ The Hatfield Marine Science Center hosts four live data streams on various serve
 
 - OQ-2: Is there a public API for the Weather Station data stream, or will we have to web scrape the data? Owner: Levi Cook, we've already reached out to our project partner and another person in charge of that data stream, and we are hoping for an answer by the end of fall term.
 
-
 # Design Doc: Hatfield Live Data Public UI
 
 ## Overview
 
-An education and exploration-focused web app for the Hatfield Marine Science Center, showcasing a variety of data streams collected at the center as well as additional educational information about the HMSC and Yaquina estuary. UI is built in React, consisting of an interactive map containing modules for different data streams, each collected from their respective APIs or alternative sources. The app is targeted toward people ages 8 and up, with the goal of informing people about the HMSC and Yaquina Estuary, and allowing them to explore the relationships between different pieces of data, e.g. water depth and salinity. 
-
+An education and exploration-focused web app for the Hatfield Marine Science Center, showcasing a variety of data streams collected at the center as well as additional educational information about the HMSC and Yaquina estuary. UI is built in React, consisting of an interactive map containing modules for different data streams, each collected from their respective APIs or alternative sources. The app is targeted toward people ages 8 and up, with the goal of informing people about the HMSC and Yaquina Estuary, and allowing them to explore the relationships between different pieces of data, e.g. water depth and salinity.
 
 ## Architecture
 
-- Web App (React, Tailwind): The main landing page featuring the map, and individual modules containing data streams and other information. 
+- Web App (React, Tailwind): The main landing page featuring the map, and individual modules containing data streams and other information.
 - API Routes (Node): Navigation to landing page and modules.
 
 ![System overview diagram](./HatField_UI_diagram.drawio.svg)
-
 
 ## Interfaces
 
 - REST API: routes for each module, e.g. /modules/{module_name}
 - Data Visualizations: charts generated using a react-compatible library (HighCharts or ReCharts)
 
-
 ## Data Model
 
 Different data streams are accessed through different methods, and in different formats.
+
 - CORIOLIX API: [Dock-mounted sensor](https://hmsc-cms.dri.oregonstate.edu/sensor/info/ysiexo102132/) which records seawater parameters at 15-minute intervals. Data is retrieved through the [CORIOLIX API](https://hmsc-cms.dri.oregonstate.edu/api/decimateData/?model=SensorMixLg3&last_item=1&format=json) as a list of entries whose corresponding parameters are listed [here](https://hmsc-cms.dri.oregonstate.edu/parameter/list/short_name/sensor_id/). json data containing sensor readings over a given time period.
 - Pumped Water SCADA: retrieval method and format TBD
 - Underwater/Bay Webcams: Embedded live YouTube video stream.
 - Weather Station Data: json data via API if available, or scraped data from existing [html page](https://weather.hmsc.oregonstate.edu/) which updates at 5 minute intervals.
-
 
 ## Deployment Shape
 
 - The hosting location is currently undecided, and options are being researched by the development team and project partner.
 - Deployment of the site and its pages is done through the Node API.
 
-
 ## Open Questions
 
 - How will SCADA and weather station data be accessed?
 - What library/package will be used for charts/visualization?
 
-
 ## Deferred Decisions
 
 - Where will the site be hosted (CEOAS, HMSC Library, OSU CS Servers, etc)
-
 
 # Risks
 
@@ -134,17 +122,15 @@ Objective: Create a user friendly web-based UI that showcases all four data stre
 
 R-1 business, H/H (dealing with this now; it will delay the completion of the project). We currently don't have any website or API access to the Pumped Seawater SCADA data stream from a local facilities server; if we continue to not have access, we will be missing a data stream and hence delaying the project's completion. Asked: Our project partner Marnie Zirbel on 10/30/2026. Owner: Logan Jordan. Accept: Marnie Zirbel has reached out to the team behind the data stream, so for now we just wait for updates. If the trigger fires, then our team will try reaching out to the SCADA team. Trigger: We still don't have access to the data stream's website/API by the end of fall term.
 
-R-2 business, H/M (dealing with this now; it could cause us to do unnecessary work). We currently are deciding whether to web scrape the data (harder) from the Weather Station data stream or if to use the API (easier) if there is one; until we know if there is a public API we can use, work on this data stream may have to wait. Asked: Our project partner Marnie Zirbel on 10/30/2026, and the Weather Station lead Craig Risien on 11/1/2026. Owner: Levi Cook. Accept: Alexander Jiang has reached out to Craig Risien, so we will wait for a response on whether or not there is a public API available. If the trigger files, then we will web scrape the data from the Weather Station website. Trigger: We have not received a response from Craig or we find out there is no public API available by the end of fall term.  
+R-2 business, H/M (dealing with this now; it could cause us to do unnecessary work). We currently are deciding whether to web scrape the data (harder) from the Weather Station data stream or if to use the API (easier) if there is one; until we know if there is a public API we can use, work on this data stream may have to wait. Asked: Our project partner Marnie Zirbel on 10/30/2026, and the Weather Station lead Craig Risien on 11/1/2026. Owner: Levi Cook. Accept: Alexander Jiang has reached out to Craig Risien, so we will wait for a response on whether or not there is a public API available. If the trigger files, then we will web scrape the data from the Weather Station website. Trigger: We have not received a response from Craig or we find out there is no public API available by the end of fall term.
 
 R-3 technical, M/M (not all of us are familiar with the tech stack we're going with; it could slow our progress and code output). The team is not all super experienced and versed with the tech stack (React, Vite, etc.), and we do not have a marine science background, making the project a learning curve and new experience for all of us; if we spend too long doing research and experimenting then the project's completion could get delayed. Owner: Alexander Jiang. Mitigate: We will spend most of fall term doing research for the project and learning the tech stack, so by winter term we will be ready to dedicate our time on coding the website fully. Trigger: The team is still spending a majority of the time doing research and learning the tech stack in winter term, rather than coding features that contribute towards the project.
 
-R-4 team, M/L (all of us are busy college students; there is a lot of time to complete the project). The team consists of busy college students, and we may not all be able to dedicate 9 hours of work per week due to other commitments and studying for other classes; if we are all constantly busy doing other things the project could get delayed or we may have to rush things. Owner: JP Igloria. Mitigate: We will try to dedicate time during the week to work on the project, we have a lot of time to complete it so even during slow weeks, we shouldn't fall too far behind. Trigger: The team is not making as much progress as the canvas assignments suggest or require. 
-
+R-4 team, M/L (all of us are busy college students; there is a lot of time to complete the project). The team consists of busy college students, and we may not all be able to dedicate 9 hours of work per week due to other commitments and studying for other classes; if we are all constantly busy doing other things the project could get delayed or we may have to rush things. Owner: JP Igloria. Mitigate: We will try to dedicate time during the week to work on the project, we have a lot of time to complete it so even during slow weeks, we shouldn't fall too far behind. Trigger: The team is not making as much progress as the canvas assignments suggest or require.
 
 ## Closed
 
 No risks currently closed.
-
 
 # README.md
 
@@ -207,7 +193,6 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for set
 ## License
 
 TBD
-
 
 # CONTRIBUTING.md
 
@@ -365,7 +350,6 @@ No release, deployment, versioning, or rollback process is currently defined in 
 
 - **Questions about contributing:** Open a GitHub issue with the question and relevant context.
 - **Response time:** Allow time for a maintainer to review and follow up if needed.
-
 
 # AGENTS.md
 
