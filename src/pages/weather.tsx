@@ -1,34 +1,42 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { fetchLatestWeather, type WeatherRecord } from '../util/fetchWeather';
 
 export default function WeatherPage() {
     const [weather, setWeather] = useState<WeatherRecord | null>(null);
-    const [fetchInterval, setFetchInterval] = useState(0);
-    const [timer, setTimer] = useState(0);
+    const [secondsLeft, setSecondsLeft] = useState(900); // 15 minutes in seconds
+
     const fetchWeather = async () => {
         const weatherData = await fetchLatestWeather();
         setWeather(weatherData);
+        setSecondsLeft(900); // Reset timer on fetch
     };
 
     useEffect(() => {
         fetchWeather(); // Initial fetch
+
+        // Fetch weather every 15 minutes
         const interval = setInterval(() => {
-            setFetchInterval(prevInterval => prevInterval + 1);
             fetchWeather();
-        }, 900000); // 15 minutes in milliseconds
+        }, 900000); 
+
+        // Countdown timer every second
         const timer = setInterval(() => {
-            setTimer(prevTimer => prevTimer + 1);
-        }, 1000); // Update timer every second
+            setSecondsLeft(prev => (prev > 0 ? prev - 1 : 900));
+        }, 1000); 
+
         return () => {
             clearInterval(interval);
             clearInterval(timer);
-        }; // Cleanup on unmount
+        };
     }, []);
+
+    const minutesRemaining = Math.ceil(secondsLeft / 60);
 
     return (
         <div>
             <h1>Weather Data</h1>
-            <h1>Updates In: {Math.round((9000000 - timer * 1000) / 600000)} minutes</h1>
+            <p>Updates in: {minutesRemaining} minutes</p>
+            
             {weather ? (
                 <div>
                     <p><strong>Timestamp:</strong> {weather.TIMESTAMP}</p>
@@ -46,7 +54,11 @@ export default function WeatherPage() {
             ) : (
                 <p>Loading weather data...</p>
             )}
-            <button onClick={() => window.location.href = '/'} className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
+            
+            <button 
+                onClick={() => window.location.href = '/'} 
+                className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+            >
                 Home
             </button>
         </div>
