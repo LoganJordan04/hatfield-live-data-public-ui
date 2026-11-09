@@ -1,12 +1,12 @@
 import ModuleLink from "../buttons/ModuleLink";
 
 function Home() {
-   return (
+  return (
     <main
       aria-label="Hatfield seawater system map"
       className="min-h-screen w-full bg-white bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/hatfield-seawater-system-map.webp')",
+        backgroundImage: "url('/images/hatfield-map-draft1.svg')",
         backgroundSize: "cover",
       }}
     >
