@@ -24,6 +24,12 @@ export default function WaterQuality() {
     <div>
       <h1>Yaquina Water Quality Data</h1>
       {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
+      <button
+        onClick={() => (window.location.href = "/")}
+        className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+      >
+        Home
+      </button>
     </div>
   );
 }
