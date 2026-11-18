@@ -64,13 +64,10 @@ export function useMapViewport() {
 
   const onPointerMove = useCallback(
     (event: ReactPointerEvent<HTMLDivElement>) => {
-      if (!dragStart.current) return;
+      const drag = dragStart.current;
+      if (!drag) return;
       setView((current) =>
-        clampView(
-          dragStart.current!.viewX + event.clientX - dragStart.current!.x,
-          dragStart.current!.viewY + event.clientY - dragStart.current!.y,
-          current.zoom,
-        ),
+        clampView(drag.viewX + event.clientX - drag.x, drag.viewY + event.clientY - drag.y, current.zoom),
       );
     },
     [clampView],
@@ -80,10 +77,7 @@ export function useMapViewport() {
     dragStart.current = null;
   }, []);
 
-  const zoomWithWheel = useCallback(
-    (deltaY: number) => changeZoom(deltaY < 0 ? 0.1 : -0.1),
-    [changeZoom],
-  );
+  const zoomWithWheel = useCallback((deltaY: number) => changeZoom(deltaY < 0 ? 0.1 : -0.1), [changeZoom]);
 
   return {
     mapWidth,
