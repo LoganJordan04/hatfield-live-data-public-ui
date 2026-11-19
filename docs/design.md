@@ -12,8 +12,17 @@ An education and exploration-focused web app for the Hatfield Marine Science Cen
 
 ## Interfaces
 
-- Routing: React Router uses BrowserRouter to route between each module from the home, e.g. /seawater or /weather
-- Data Visualizations: charts generated using a react-compatible library (HighCharts or ReCharts)
+### Modules
+
+The content of the site is divided into modules, each focused on a different live data stream or area of interest at the HMSC, and each with a learning outcome based around its content. Users will interact with modules by viewing the data or information presented on the 'data page' and evaluating the learning outcomes by responding to questions on the 'learning page' of the module.
+
+### Routing: 
+
+React Router uses BrowserRouter to route between each module from the home, e.g. /seawater or /weather. The home page features an interactive map of the HMSC, and links to each module will be placed as buttons whose location on the map corresponds to their real-life location at Hatfield. Clicking these links will allow users to navigate to the corresponding module.
+
+### Data Visualizations: 
+
+Data received from each module's live data source will be translated and visualized according to the format and learning outcomes of that module, rather than being presented as raw data. For example, weather data will be formatted into a readable table and water quality parameters will be formatted into a time series chart.
 
 ## Data Model
 
@@ -22,12 +31,14 @@ Different data streams are accessed through different methods, and in different 
 - CORIOLIX API: [Dock-mounted sensor](https://hmsc-cms.dri.oregonstate.edu/sensor/info/ysiexo102132/) which records seawater parameters at 15-minute intervals. Data is retrieved through the [CORIOLIX API](https://hmsc-cms.dri.oregonstate.edu/api/decimateData/?model=SensorMixLg3&last_item=1&format=json) as a list of entries whose corresponding parameters are listed [here](https://hmsc-cms.dri.oregonstate.edu/parameter/list/short_name/sensor_id/). json data containing sensor readings over a given time period.
 - Pumped Water SCADA: retrieval method and format TBD
 - Underwater/Bay Webcams: Embedded live YouTube video stream.
-- Weather Station Data: json data via API if available, or scraped data from existing [html page](https://weather.hmsc.oregonstate.edu/) which updates at 5 minute intervals.
+- Weather Station Data: We do not have access to the data on the CEOAS servers, but the data is available via a text file which updates at regular intervals, we will access the data by retrieving and parsing that file.
+
+In case of a live data source being broken, down for maintenance, or otherwise inaccessible, the status will be reported within the module, and sample data may be stored used as a placeholder to preserve the learning outcomes (e.g. previous weather data or water quality measurements).
 
 ## Deployment Shape
 
 - The hosting location is currently undecided, and options are being researched by the development team and project partner.
-- Deployment of the site and its pages is done through the Node API.
+- Deployment of the site will initially be done via GitHub Pages, and we will work with IT to determine the necessary steps and location for permanent deployment with a subdomain of the HMSC site.
 
 ## Open Questions
 
