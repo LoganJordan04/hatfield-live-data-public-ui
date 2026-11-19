@@ -4,8 +4,9 @@ import WaterQuality from "./pages/WaterQuality";
 import DockWebcam from "./pages/DockWebcam";
 import Weather from "./pages/weather";
 import ModulePage from "./components/ModulePage";
+import LearningPage from "./components/LearningPage";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,9 +15,8 @@ function App() {
         <Route path="/DockWebcam" element={<DockWebcam />} />
         <Route path="/Weather" element={<Weather />} />
         <Route path="/ModulePage" element={ <ModulePage title="Module Page" description="Description of my module." />} />
+        <Route path="/LearningPage" element={ <LearningPage title="Module Page" description="Description of my module." />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;

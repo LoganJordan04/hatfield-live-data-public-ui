@@ -8,7 +8,7 @@ export default function ReturnToDataButton() {
     >
       <span className="relative w-[25px] h-[25px] aspect-[1]" aria-hidden="true">
         <img
-          className="absolute w-[82.00%] top-[calc(50.00%_-_7px)] left-[18.00%] h-4 aspect-[1]"
+          className="absolute w-[93.75%] h-[89.58%] top-[10.42%] left-[6.25%]"
           alt="Button to go back to the data page"
           src="/images/back-arrow.svg"
         />

@@ -6,7 +6,7 @@ export default function LearningQuiz() {
     const [selectedOption, setSelectedOption] = useState("");
 
     return (
-        <main className="flex flex-col w-[960px] h-[637px] items-start gap-6 p-6 relative bg-white rounded-2x1 border border-solid border-[#e9e5e4]">
+        <main className="flex flex-col w-full min-w-0 items-start gap-6 p-6 relative bg-white rounded-2xl border border-solid border-[#e9e5e4]">
             <header className="flex flex-col items-start gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
                 <h1 className="relative self-stretch mt-[-1.00px] font-family:'Open_Sans-Bold' ,Helvetica] font-bold text-black text-2x1 tracking-[0] leading-[normal]">
                     Step title
@@ -61,5 +61,5 @@ export default function LearningQuiz() {
                 })}
             </fieldset>
         </main>
-    )
+    );
 }

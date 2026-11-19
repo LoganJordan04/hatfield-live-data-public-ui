@@ -5,7 +5,7 @@ type ModuleLinkProps = {
   moduleRoute: string;
 };
 
-function ModuleLink({ moduleName, moduleRoute }: ModuleLinkProps) {
+export default function ModuleLink({ moduleName, moduleRoute }: ModuleLinkProps) {
   return (
     <Link to={moduleRoute} className="rounded-lg bg-orange-600 px-4 py-2 text-white">
       {moduleName}
@@ -13,4 +13,3 @@ function ModuleLink({ moduleName, moduleRoute }: ModuleLinkProps) {
   );
 }
 
-export default ModuleLink;

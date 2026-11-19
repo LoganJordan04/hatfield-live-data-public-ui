@@ -1,6 +1,6 @@
 import ModuleLink from "../buttons/ModuleLink";
 
-function Home() {
+export default function Home() {
   return (
     <main
       aria-label="Hatfield seawater system map"
@@ -25,5 +25,3 @@ function Home() {
     </main>
   );
 }
-
-export default Home;

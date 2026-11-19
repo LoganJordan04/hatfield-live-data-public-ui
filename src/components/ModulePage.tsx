@@ -2,14 +2,14 @@ import SiteBanner from "./SiteBanner";
 import ModuleHeader from "./ModuleHeader";
 import BackButton from "../buttons/BackButton";
 import ModuleContentContainer from "./ModuleContentContainer";
+import WhatDoesThisMeanContainer from "./WhatDoesThisMeanContainer";
 
 type ModulePageProps = {
   title: string;
   description: string;
 };
 
-export default function ModulePage({ title, description }: ModulePageProps
-) {
+export default function ModulePage({ title, description }: ModulePageProps) {
   return (
     <>
       <SiteBanner />
@@ -18,6 +18,7 @@ export default function ModulePage({ title, description }: ModulePageProps
           <aside className="flex flex-col items-start gap-4 w-[30%]">
             <BackButton />
             <ModuleHeader title={title} description={description} />
+            <WhatDoesThisMeanContainer />
           </aside>
           <ModuleContentContainer DataTitle={title} />
         </div>
