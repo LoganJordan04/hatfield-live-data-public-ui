@@ -86,13 +86,13 @@ export default function WeatherPage() {
           <p><strong>Total Rainfall (10 min):</strong> {latestWeather.TotRN_5} in</p>
           <p><strong>Daily Rainfall:</strong> {latestWeather.DailyRN} in</p>
         </div>
-        <button onClick={() => setShowDailyAvg(!showDailyAvg)}>
+        <button onClick={() => {setShowDailyAvg(!showDailyAvg); setShowWeeklyAvg(false); setShowMonthlyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
           {showDailyAvg ? "Hide" : "Show"} Daily Averages
         </button>
-        <button onClick={() => setShowWeeklyAvg(!showWeeklyAvg)}>
+        <button onClick={() => {setShowWeeklyAvg(!showWeeklyAvg); setShowDailyAvg(false); setShowMonthlyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
           {showWeeklyAvg ? "Hide" : "Show"} Weekly Averages
         </button>
-        <button onClick={() => setShowMonthlyAvg(!showMonthlyAvg)}>
+        <button onClick={() => {setShowMonthlyAvg(!showMonthlyAvg); setShowDailyAvg(false); setShowWeeklyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
           {showMonthlyAvg ? "Hide" : "Show"} Monthly Averages
         </button>
         </div>
