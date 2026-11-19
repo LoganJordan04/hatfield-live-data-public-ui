@@ -1,4 +1,4 @@
-export default function SiteBanner() {
+export default function SiteHeader() {
   return (
     <header
       className="flex h-[100px] w-[100%] items-center gap-[22px] border-b [border-bottom-style:solid] border-[#e9e5e4] bg-white px-5 py-4"
