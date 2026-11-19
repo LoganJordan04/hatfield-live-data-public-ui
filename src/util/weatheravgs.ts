@@ -2,6 +2,7 @@ import type WeatherRecord from "../types/weathertype";
 
 const SKIP = new Set(['date', 'TIMESTAMP', 'RECORD']);
 
+// Finds the average of each column for the most recent day
 export function dailyAverages(
   records: WeatherRecord[]
 ): Record<string, number | null> {
@@ -31,6 +32,7 @@ export function dailyAverages(
   return averages;
 }
 
+// Finds the average of each column for the most recent 7 days
 export function weeklyAverages(
   records: WeatherRecord[]
 ): Record<string, number | null> {
@@ -67,6 +69,7 @@ export function weeklyAverages(
   return averages;
 }
 
+// Find the average of each column for the entire .dat file
 export function monthlyAverages(
   records: WeatherRecord[]
 ): Record<string, number | null> {
@@ -74,11 +77,9 @@ export function monthlyAverages(
 
     const averages: Record<string, number | null> = {};
 
-  // Use the first row's keys as the list of columns
   for (const key of Object.keys(records[records.length - 1])) {
     if (SKIP.has(key)) continue;
 
-    // Keep only valid numbers (drops NaN and strings like "NAN")
     const values = records
       .map((r) => r[key])
       .filter((v): v is number => typeof v === 'number' && Number.isFinite(v));
