@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Maximize, Minus, Plus } from "lucide-react";
 import mapSvg from "./assets/hatfield-map.svg?raw";
 import ModuleLink from "../buttons/ModuleLink";
 import { MAP_VIEWBOX, MAP_ASPECT_RATIO, MODULE_ANCHORS } from "./mapAnchors";
@@ -72,29 +73,30 @@ function InteractiveMap() {
         })}
       </div>
 
-      <div aria-label="Map controls" className="absolute right-4 top-4 z-10 flex flex-col gap-2">
+      <div aria-label="Map controls" className="absolute left-5 bottom-5 z-10 flex flex-col gap-2">
         <button
           type="button"
           onClick={() => map.changeZoom(0.2)}
           aria-label="Zoom in"
-          className="h-11 w-11 rounded-lg bg-white text-2xl shadow hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
-          +
+          <Plus aria-hidden="true" className="text-body" size={20} />
         </button>
         <button
           type="button"
           onClick={() => map.changeZoom(-0.2)}
           aria-label="Zoom out"
-          className="h-11 w-11 rounded-lg bg-white text-2xl shadow hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
-          -
+          <Minus aria-hidden="true" className="text-body" size={20} />
         </button>
         <button
           type="button"
           onClick={map.resetView}
-          className="rounded-lg bg-white px-3 py-2 text-sm shadow hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          aria-label="Reset map"
+          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
-          Reset
+          <Maximize aria-hidden="true" className="text-body" size={20} />
         </button>
         <span className="sr-only" aria-live="polite">
           Zoom {Math.round(map.view.zoom * 100)}%
