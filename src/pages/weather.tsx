@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type WeatherRecord from "../types/weathertype";
 import { fetchAllWeather } from "../util/fetchWeather";
-import { dailyAverages, weeklyAverages } from "../util/weatheravgs";
+import { dailyAverages, weeklyAverages, monthlyAverages } from "../util/weatheravgs";
 
 export default function WeatherPage() {
   const [weather, setWeather] = useState<WeatherRecord[] | null>(null);
@@ -9,8 +9,10 @@ export default function WeatherPage() {
   const [secondsLeft, setSecondsLeft] = useState(900);
   const [dailyAvg, setDailyAvg] = useState<Record<string, number | null> | null>(null);
   const [weeklyAvg, setWeeklyAvg] = useState<Record<string, number | null> | null>(null);
+  const [monthlyAvg, setMonthlyAvg] = useState<Record<string, number | null> | null>(null);
   const [showDailyAvg, setShowDailyAvg] = useState(false);
   const [showWeeklyAvg, setShowWeeklyAvg] = useState(false);
+  const [showMonthlyAvg, setShowMonthlyAvg] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -25,6 +27,7 @@ export default function WeatherPage() {
         setSecondsLeft(900);
         setDailyAvg(dailyAverages(records));
         setWeeklyAvg(weeklyAverages(records));
+        setMonthlyAvg(monthlyAverages(records));
       } catch (error) {
         console.error("Error fetching or parsing weather data:", error);
         if (isMounted) setIsOffline(true);
@@ -89,6 +92,9 @@ export default function WeatherPage() {
         <button onClick={() => setShowWeeklyAvg(!showWeeklyAvg)}>
           {showWeeklyAvg ? "Hide" : "Show"} Weekly Averages
         </button>
+        <button onClick={() => setShowMonthlyAvg(!showMonthlyAvg)}>
+          {showMonthlyAvg ? "Hide" : "Show"} Monthly Averages
+        </button>
         </div>
       ) : (
         <p>No weather readings are available right now.</p>
@@ -107,6 +113,16 @@ export default function WeatherPage() {
             <div>
                 <h2>Weekly Averages</h2>
                 {Object.entries(weeklyAvg).map(([key, value]) => (
+                    <p key={key}>
+                      <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
+                    </p>
+                ))}
+            </div>
+        )}
+        {showMonthlyAvg && monthlyAvg && (
+            <div>
+                <h2>Monthly Averages</h2>
+                {Object.entries(monthlyAvg).map(([key, value]) => (
                     <p key={key}>
                       <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
                     </p>

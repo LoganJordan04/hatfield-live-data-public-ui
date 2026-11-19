@@ -66,3 +66,29 @@ export function weeklyAverages(
 
   return averages;
 }
+
+export function monthlyAverages(
+  records: WeatherRecord[]
+): Record<string, number | null> {
+  if (records.length === 0) return {};
+
+    const averages: Record<string, number | null> = {};
+
+  // Use the first row's keys as the list of columns
+  for (const key of Object.keys(records[records.length - 1])) {
+    if (SKIP.has(key)) continue;
+
+    // Keep only valid numbers (drops NaN and strings like "NAN")
+    const values = records
+      .map((r) => r[key])
+      .filter((v): v is number => typeof v === 'number' && Number.isFinite(v));
+
+    averages[key] =
+      values.length > 0
+        ? values.reduce((sum, v) => sum + v, 0) / values.length
+        : null;
+  }
+
+  return averages;
+
+}
