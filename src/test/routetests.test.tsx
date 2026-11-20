@@ -6,7 +6,6 @@ import Home from "../pages/Home";
 import WaterQuality from "../pages/WaterQuality";
 import Weather from "../pages/weather";
 
-
 function renderRoute(path: string) {
   return render(
     <MemoryRouter initialEntries={[path]}>
@@ -27,9 +26,9 @@ vi.mock("../util/fetchWeather", () => ({
 describe("Route Tests", () => {
   it("renders Home page for / route", () => {
     renderRoute("/");
-    expect(screen.getByText(/Yaquina Water Quality/i)).toBeInTheDocument();
-    expect(screen.getByText(/Underwater Dock Webcam/i)).toBeInTheDocument();
-    expect(screen.getByText(/Weather Data/i)).toBeInTheDocument();
+    expect(screen.getByRole("application", { name: /Drag to move the map/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Zoom in" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Module Page" })).toBeInTheDocument();
   });
 
   it("renders Water Quality page for /WaterQuality route", () => {
@@ -44,8 +43,6 @@ describe("Route Tests", () => {
 
   it("renders Weather page for /Weather route", () => {
     renderRoute("/Weather");
-    expect(
-      screen.getByRole("heading", { name: "Weather Data" }),
-  ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Weather Data" })).toBeInTheDocument();
   });
 });

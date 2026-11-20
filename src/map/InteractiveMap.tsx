@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Maximize, Minus, Plus } from "lucide-react";
 import mapSvg from "./assets/hatfield-map.svg?raw";
 import ModuleLink from "../buttons/ModuleLink";
-import { MAP_VIEWBOX, MAP_ASPECT_RATIO, MODULE_ANCHORS } from "./mapAnchors";
+import { MAP_VIEWBOX, MODULE_ANCHORS } from "./mapAnchors";
 import { useBuildingAnchors } from "./useBuildingAnchors";
 import { useMapViewport } from "./useMapViewport";
 
