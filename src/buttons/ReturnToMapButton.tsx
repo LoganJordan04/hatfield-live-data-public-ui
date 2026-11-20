@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function ReturnToMapButton() {
   return (
     <Link
       to="/"
-      className="inline-flex items-center justify-center gap-2.5 px-6 py-4 relative bg-white rounded-lg overflow-hidden border border-solid border-[#e9e5e4] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+      className="inline-flex items-center justify-center gap-2.5 px-6 py-4 relative bg-white rounded-lg overflow-hidden border border-solid border-border cursor-pointer hover:bg-gray-100"
     >
-      <span className="relative w-[25px] h-[25px] aspect-[1]" aria-hidden="true">
-        <img
-          className="absolute w-[93.75%] h-[89.58%] top-[10.42%] left-[6.25%]"
-          alt="Button to go back to the home page"
-          src="/images/back-arrow.svg"
-        />
-      </span>
-      <span className="relative w-fit mt-[-1.00px] [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-nowrap">
+      <ArrowLeft aria-hidden="true" className="text-body" size={20} />
+      <span className="relative w-fit -mt-px font-normal text-body text-xl tracking-normal leading-7.25 whitespace-nowrap">
         Return to map
       </span>
     </Link>

@@ -1,27 +1,11 @@
-import ModuleLink from "../buttons/ModuleLink";
+import InteractiveMap from "../map/InteractiveMap";
+import SiteHeader from "../components/SiteHeader";
 
 export default function Home() {
   return (
-    <main
-      aria-label="Hatfield seawater system map"
-      className="min-h-screen w-full bg-white bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/hatfield-map-draft1.svg')",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="absolute left-[45%] top-[89%]">
-        <ModuleLink moduleName="Yaquina Water Quality" moduleRoute="/WaterQuality" />
-      </div>
-      <div className="absolute left-[45%] top-[95%]">
-        <ModuleLink moduleName="Underwater Dock Webcam" moduleRoute="/DockWebcam" />
-      </div>
-      <div className="absolute left-[45%] top-[101%]">
-        <ModuleLink moduleName="Weather Data" moduleRoute="/Weather" />
-      </div>
-      <div className="absolute left-[50%] top-[50%]">
-        <ModuleLink moduleName="Module Page" moduleRoute="/ModulePage" />
-      </div>
-    </main>
+    <>
+      <SiteHeader />
+      <InteractiveMap />
+    </>
   );
 }

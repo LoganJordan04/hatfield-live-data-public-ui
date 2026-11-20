@@ -1,4 +1,3 @@
-
 type ModuleInfoProps = {
   ModuleTitle: string;
   ModuleDescription: string;

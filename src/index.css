@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-orange: #d73f09;
+  --color-body: #423e3c;
+  --color-bg: #f7f5f5;
+  --color-border: #e9e5e4;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,7 +16,7 @@
     margin: 0;
     min-width: 320px;
     font-family:
-      Inter,
+      "Open Sans",
       ui-sans-serif,
       system-ui,
       -apple-system,
@@ -21,6 +28,10 @@
 
   a {
     text-underline-offset: 3px;
+  }
+
+  svg.lucide {
+    stroke-width: 1.5;
   }
 
   @media (prefers-reduced-motion: reduce) {
