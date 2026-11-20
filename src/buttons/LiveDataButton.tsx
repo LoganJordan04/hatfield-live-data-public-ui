@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChartNoAxesCombined } from "lucide-react";
 
 export default function LiveDataButton() {
   const [selected, setSelected] = useState(true);
@@ -9,18 +10,12 @@ export default function LiveDataButton() {
       aria-label="Live data"
       aria-pressed={selected}
       onClick={() => setSelected(true)}
-      className="inline-flex items-center justify-center gap-2 px-6 py-4 relative bg-[#d73f09] rounded-lg overflow-hidden"
+      className="inline-flex items-center justify-center gap-2 px-6 py-4 relative bg-orange rounded-lg overflow-hidden"
     >
-      <span className="relative w-6 h-6 aspect-[1]" aria-hidden="true">
-        <img
-          className="absolute w-[93.75%] h-[89.58%] top-[10.42%] left-[6.25%]"
-          alt="Button to display live data"
-          src="/images/live-data-icon.svg"
-        />
-      </span>
-      <span className="relative w-fit mt-[-3.00px] [font-family:'Open_Sans-Bold',Helvetica] font-bold text-white text-xl tracking-[0] leading-[29.0px] whitespace-nowrap">
+      <ChartNoAxesCombined aria-hidden="true" className="text-white" size={20} />
+      <span className="relative w-fit -mt-0.75 font-bold text-white text-xl tracking-normal leading-7.25 whitespace-nowrap">
         Live data
       </span>
     </button>
   );
-};
+}
