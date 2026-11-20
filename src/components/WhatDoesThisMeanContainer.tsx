@@ -1,4 +1,5 @@
 import OpenLearningModuleButton from "../buttons/OpenLearningModuleButton";
+import { BookOpen } from "lucide-react";
 
 export default function WhatDoesThisMeanContainer() {
   return (
@@ -8,14 +9,7 @@ export default function WhatDoesThisMeanContainer() {
     >
       <header className="flex flex-col items-start gap-2 relative self-stretch w-full flex-[0_0_auto]">
         <div className="flex items-center gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
-          <div className="relative w-[26px] h-[26px] aspect-[1]">
-            <img
-              className="absolute w-[93.59%] h-[89.42%] top-[10.58%] left-[6.41%]"
-              alt="learn icon"
-              aria-hidden="true"
-              src="/images/learn-icon.svg"
-            />
-          </div>
+          <BookOpen aria-hidden="true" className="text-body" size={20} />
           <h2
             id="what-does-this-mean-title"
             className="relative w-fit mt-[-1.00px] [font-family:'Open_Sans-Bold',Helvetica] font-bold text-[#0d5257] text-2xl tracking-[0] leading-[34.8px] whitespace-nowrap"
@@ -30,9 +24,8 @@ export default function WhatDoesThisMeanContainer() {
           Learn more
         </p>
       </header>
-      
+
       <OpenLearningModuleButton />
-      
     </main>
   );
 }

@@ -5,7 +5,7 @@ export default function ReturnToDataButton() {
   return (
     <Link
       to="/ModulePage"
-      className="inline-flex items-center justify-center gap-2.5 px-6 py-4 relative bg-white rounded-lg overflow-hidden border border-solid border-[#e9e5e4] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+      className="inline-flex items-center justify-center gap-2.5 px-6 py-4 relative bg-white rounded-lg overflow-hidden border border-solid border-[#e9e5e4] cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
     >
       <ArrowLeft aria-hidden="true" className="text-body" size={20} />
       <span className="relative w-fit mt-[-1.00px] [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-nowrap">

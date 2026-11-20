@@ -89,7 +89,7 @@ function InteractiveMap() {
           type="button"
           onClick={() => map.changeZoom(0.2)}
           aria-label="Zoom in"
-          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border cursor-pointer hover:bg-gray-200"
         >
           <Plus aria-hidden="true" className="text-body" size={20} />
         </button>
@@ -97,7 +97,7 @@ function InteractiveMap() {
           type="button"
           onClick={() => map.changeZoom(-0.2)}
           aria-label="Zoom out"
-          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border cursor-pointer hover:bg-gray-200"
         >
           <Minus aria-hidden="true" className="text-body" size={20} />
         </button>
@@ -105,7 +105,7 @@ function InteractiveMap() {
           type="button"
           onClick={map.resetView}
           aria-label="Reset map"
-          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border cursor-pointer hover:bg-gray-200"
         >
           <Maximize aria-hidden="true" className="text-body" size={20} />
         </button>
