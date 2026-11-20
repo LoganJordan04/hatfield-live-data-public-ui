@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
+import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 import { MAP_ASPECT_RATIO } from "./mapAnchors";
 
 const MIN_ZOOM = 1;
@@ -9,10 +9,10 @@ type MapView = { x: number; y: number; zoom: number };
 type ViewportSize = { width: number; height: number };
 
 // Map panning, zooming, resizing, and bounds
-export function useMapViewport() {
+export function useMapViewport(viewportRef: RefObject<HTMLElement | null>) {
   const [viewportSize, setViewportSize] = useState<ViewportSize>(() => ({
     width: window.innerWidth,
-    height: window.innerHeight,
+    height: window.innerHeight - 100,
   }));
   const [view, setView] = useState<MapView>({ x: 0, y: 0, zoom: 1 });
   const dragStart = useRef<{ x: number; y: number; viewX: number; viewY: number } | null>(null);
@@ -33,10 +33,16 @@ export function useMapViewport() {
   );
 
   useEffect(() => {
-    const updateSize = () => setViewportSize({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const observer = new ResizeObserver(() => {
+      setViewportSize({ width: viewport.clientWidth, height: viewport.clientHeight });
+    });
+    observer.observe(viewport);
+    setViewportSize({ width: viewport.clientWidth, height: viewport.clientHeight });
+    return () => observer.disconnect();
+  }, [viewportRef]);
 
   useEffect(() => {
     setView((current) => clampView(current.x, current.y, current.zoom));

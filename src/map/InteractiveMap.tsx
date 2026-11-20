@@ -8,9 +8,10 @@ import { useMapViewport } from "./useMapViewport";
 
 // Renders the map SVG, configured module links, and map nav controls
 function InteractiveMap() {
+  const viewportRef = useRef<HTMLElement>(null);
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const mapSurfaceRef = useRef<HTMLDivElement>(null);
-  const map = useMapViewport();
+  const map = useMapViewport(viewportRef);
   const anchors = useBuildingAnchors(
     svgContainerRef,
     MODULE_ANCHORS,
@@ -33,7 +34,11 @@ function InteractiveMap() {
   }, [map.zoomWithWheel]);
 
   return (
-    <main aria-label="Hatfield seawater system map" className="relative h-screen w-full overflow-hidden bg-white">
+    <main
+      ref={viewportRef}
+      aria-label="Hatfield seawater system map"
+      className="relative h-[calc(100vh-80px)] w-full overflow-hidden bg-white"
+    >
       <div
         ref={mapSurfaceRef}
         className="absolute left-1/2 top-1/2 cursor-grab touch-none active:cursor-grabbing"
