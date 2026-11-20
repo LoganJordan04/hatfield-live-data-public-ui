@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 import { MAP_ASPECT_RATIO } from "./mapAnchors";
 
@@ -12,7 +12,7 @@ type ViewportSize = { width: number; height: number };
 export function useMapViewport(viewportRef: RefObject<HTMLElement | null>) {
   const [viewportSize, setViewportSize] = useState<ViewportSize>(() => ({
     width: window.innerWidth,
-    height: window.innerHeight - 100,
+    height: window.innerHeight - 80,
   }));
   const [view, setView] = useState<MapView>({ x: 0, y: 0, zoom: 1 });
   const dragStart = useRef<{ x: number; y: number; viewX: number; viewY: number } | null>(null);
@@ -32,7 +32,7 @@ export function useMapViewport(viewportRef: RefObject<HTMLElement | null>) {
     [mapHeight, mapWidth, viewportSize.height, viewportSize.width],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
 
