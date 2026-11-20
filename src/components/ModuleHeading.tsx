@@ -2,12 +2,12 @@ import ModuleTitle from "./ModuleTitle";
 import LiveDataButton from "../buttons/LiveDataButton";
 import LearnButton from "../buttons/LearnButton";
 
-type ModuleHeaderProps = {
+type ModuleHeadingProps = {
   title: string;
   description: string;
 };
 
-export default function ModuleHeader({ title, description }: ModuleHeaderProps) {
+export default function ModuleHeading({ title, description }: ModuleHeadingProps) {
   return (
     <main
       aria-labelledby="location-title"
