@@ -8,8 +8,7 @@ type ModulePageProps = {
   description: string;
 };
 
-export default function ModulePage({ title, description }: ModulePageProps
-) {
+export default function ModulePage({ title, description }: ModulePageProps) {
   return (
     <>
       <SiteHeader />
