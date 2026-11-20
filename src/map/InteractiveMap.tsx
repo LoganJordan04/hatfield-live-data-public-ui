@@ -64,10 +64,15 @@ function InteractiveMap() {
           return (
             <div
               key={anchor.moduleRoute}
-              className="absolute z-[1] -translate-x-1/2 -translate-y-full"
+              className="absolute z-1 -translate-x-1/2 -translate-y-full"
               style={{ left: position.x, top: position.y }}
             >
-              <ModuleLink moduleName={anchor.moduleName} moduleRoute={anchor.moduleRoute} />
+              <ModuleLink
+                moduleName={anchor.moduleName}
+                moduleRoute={anchor.moduleRoute}
+                number={anchor.number}
+                icon={anchor.icon}
+              />
             </div>
           );
         })}
@@ -78,7 +83,7 @@ function InteractiveMap() {
           type="button"
           onClick={() => map.changeZoom(0.2)}
           aria-label="Zoom in"
-          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
           <Plus aria-hidden="true" className="text-body" size={20} />
         </button>
@@ -86,7 +91,7 @@ function InteractiveMap() {
           type="button"
           onClick={() => map.changeZoom(-0.2)}
           aria-label="Zoom out"
-          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
           <Minus aria-hidden="true" className="text-body" size={20} />
         </button>
@@ -94,7 +99,7 @@ function InteractiveMap() {
           type="button"
           onClick={map.resetView}
           aria-label="Reset map"
-          className="flex h-12 w-12 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
+          className="flex p-3 items-center justify-center bg-bg rounded-lg border border-border hover:bg-gray-200"
         >
           <Maximize aria-hidden="true" className="text-body" size={20} />
         </button>
