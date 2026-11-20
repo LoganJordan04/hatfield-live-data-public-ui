@@ -20,4 +20,4 @@ export default function ModuleHeading({ title, description }: ModuleHeadingProps
       </div>
     </main>
   );
-    }
+}

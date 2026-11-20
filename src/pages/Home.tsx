@@ -1,6 +1,6 @@
 import ModuleLink from "../buttons/ModuleLink";
 
-function Home() {
+export default function Home() {
   return (
     <main
       aria-label="Hatfield seawater system map"
@@ -19,8 +19,9 @@ function Home() {
       <div className="absolute left-[45%] top-[101%]">
         <ModuleLink moduleName="Weather Data" moduleRoute="/Weather" />
       </div>
+      <div className="absolute left-[50%] top-[50%]">
+        <ModuleLink moduleName="Module Page" moduleRoute="/ModulePage" />
+      </div>
     </main>
   );
 }
-
-export default Home;
