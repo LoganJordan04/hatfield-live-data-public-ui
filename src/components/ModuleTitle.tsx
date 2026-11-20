@@ -24,4 +24,4 @@ export default function ModuleTitle({ title, description }: ModuleTitleProps) {
       </p>
     </main>
   );
-};
+}

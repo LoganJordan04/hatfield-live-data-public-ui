@@ -2,6 +2,7 @@ import SiteHeader from "./SiteHeader";
 import ModuleHeading from "./ModuleHeading";
 import ReturnToMapButton from "../buttons/ReturnToMapButton";
 import ModuleContentContainer from "./ModuleContentContainer";
+import WhatDoesThisMeanContainer from "./WhatDoesThisMeanContainer";
 
 type ModulePageProps = {
   title: string;
@@ -17,6 +18,7 @@ export default function ModulePage({ title, description }: ModulePageProps) {
           <aside className="flex flex-col items-start gap-4 w-[30%]">
             <ReturnToMapButton />
             <ModuleHeading title={title} description={description} />
+            <WhatDoesThisMeanContainer />
           </aside>
           <ModuleContentContainer DataTitle={title} />
         </div>

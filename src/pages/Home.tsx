@@ -1,7 +1,7 @@
 import InteractiveMap from "../map/InteractiveMap";
 import SiteHeader from "../components/SiteHeader";
 
-function Home() {
+export default function Home() {
   return (
     <>
       <SiteHeader />
@@ -9,5 +9,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

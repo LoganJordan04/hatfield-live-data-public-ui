@@ -8,7 +8,7 @@ type ModuleLinkProps = {
   icon: LucideIcon;
 };
 
-function ModuleLink({ moduleName, moduleRoute, number, icon: Icon }: ModuleLinkProps) {
+export default function ModuleLink({ moduleName, moduleRoute, number, icon: Icon }: ModuleLinkProps) {
   return (
     <Link to={moduleRoute} aria-label={`${number}: ${moduleName}`} className="flex w-fit flex-col items-center">
       <span className="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-orange bg-white px-3 py-2 hover:bg-gray-100">
@@ -20,5 +20,3 @@ function ModuleLink({ moduleName, moduleRoute, number, icon: Icon }: ModuleLinkP
     </Link>
   );
 }
-
-export default ModuleLink;
