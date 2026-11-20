@@ -19,6 +19,11 @@ export function useBuildingAnchors(
     const svg = svgContainerRef.current?.querySelector("svg");
     if (!svg) return;
 
+    const svgBounds = svg.getBoundingClientRect();
+    const scaleX = svgBounds.width / mapWidth;
+    const scaleY = svgBounds.height / mapHeight;
+    if (scaleX === 0 || scaleY === 0) return;
+
     const next: Record<string, AnchorPosition> = {};
     for (const anchor of anchors) {
       const building = svg.querySelector<SVGGElement>(`#${CSS.escape(anchor.buildingId)}`);
@@ -27,22 +32,16 @@ export function useBuildingAnchors(
         continue;
       }
 
-      const bounds = building.getBBox();
-      const transform = building.getCTM();
-      if (!transform) continue;
-      const corners = [
-        new DOMPoint(bounds.x, bounds.y),
-        new DOMPoint(bounds.x + bounds.width, bounds.y),
-        new DOMPoint(bounds.x, bounds.y + bounds.height),
-        new DOMPoint(bounds.x + bounds.width, bounds.y + bounds.height),
-      ].map((point) => point.matrixTransform(transform));
-      const left = Math.min(...corners.map((point) => point.x));
-      const right = Math.max(...corners.map((point) => point.x));
-      const bottom = Math.max(...corners.map((point) => point.y));
+      // Use rendered bounds so nested SVG transforms match the visible building.
+      const bounds = building.getBoundingClientRect();
 
       next[anchor.moduleRoute] = {
-        x: (left + right) / 2 + ((anchor.offsetX ?? 0) / viewBoxWidth) * mapWidth,
-        y: bottom + ((anchor.offsetY ?? 0) / viewBoxHeight) * mapHeight,
+        x:
+          (bounds.left + bounds.width / 2 - svgBounds.left) / scaleX +
+          ((anchor.offsetX ?? 0) / viewBoxWidth) * mapWidth,
+        y:
+          (bounds.bottom - svgBounds.top) / scaleY +
+          ((anchor.offsetY ?? 0) / viewBoxHeight) * mapHeight,
       };
     }
     setPositions(next);
