@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Maximize, Minus, Plus } from "lucide-react";
 import mapSvg from "./assets/hatfield-map.svg?raw";
 import ModuleLink from "../buttons/ModuleLink";
@@ -111,6 +112,14 @@ function InteractiveMap() {
         <span className="sr-only" aria-live="polite">
           Zoom {Math.round(map.view.zoom * 100)}%
         </span>
+      </div>
+      <div className="absolute bottom-5 right-5 z-10">
+        <Link
+          to="/ModulePage"
+          className="inline-flex items-center justify-center rounded-lg border border-border bg-bg px-4 py-3 text-body hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-body"
+        >
+          Module Page
+        </Link>
       </div>
     </main>
   );
