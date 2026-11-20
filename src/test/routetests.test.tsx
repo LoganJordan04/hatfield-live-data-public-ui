@@ -28,7 +28,9 @@ describe("Route Tests", () => {
     renderRoute("/");
     expect(screen.getByRole("application", { name: /Drag to move the map/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Zoom in" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Module Page" })).toBeInTheDocument();
+
+    const linkRoutes = screen.getAllByRole("link").map((link) => link.getAttribute("href"));
+    expect(linkRoutes).toEqual(expect.arrayContaining(["/Weather", "/WaterQuality", "/DockWebcam"]));
   });
 
   it("renders Water Quality page for /WaterQuality route", () => {
