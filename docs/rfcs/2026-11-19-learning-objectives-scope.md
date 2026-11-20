@@ -31,7 +31,7 @@ The largest drawback of this option, is that users with less existing knowledge 
 
 This option would involve separating the data streams and making decisions on what specifically the learning objective of each stream should be. This would include collaborating with our sponsor and potentially educators on what kinds of learning they believe are most important/beneficial for users. This method would also create a more modular design allowing users to view the data one stream at a time rather than all at the same time. Currently, we have been given some of these learning modules but they are still largely incomplete and further communication will need to be done to see this option through.
 
-This option would be much more useful/beneficial for the general public/layman. The data will be narrowed in on specific objectives and the data will be given context that a users 8+ can understand what is being presented. The design will promote users to click through each stream and learn the objectives one by one promoting interactivity. This fits how people tend to learn in informal settings like museums and science centers, where learning is voluntary and driven by the learner's own interests [3], and it follows the progressive disclosure pattern of showing basics first and deferring advanced detail [4].
+This option would be much more useful/beneficial for the general public/layman. The data will be narrowed in on specific objectives and the data will be given context that users 8+ can understand what is being presented. The design will promote users to click through each stream and learn the objectives one by one promoting interactivity. This fits how people tend to learn in informal settings like museums and science centers, where learning is voluntary and driven by the learner's own interests [3], and it follows the progressive disclosure pattern of showing basics first and deferring advanced detail [4].
 
 A limitation of this option is that users with a marine science background could find the website significantly less useful. While one of the goals of the project is to promote education, another goal was to integrate all of Hatfield's live data into one place where people can view it. If we are limiting what data is displayed we would actively be working against this goal.
 
@@ -53,7 +53,7 @@ Evaluating these options requires balancing public-facing usability against engi
 
 ### 1. Performance
 
-- **Data Sandbox (Option A) & Dual-Mode (Option C):** Rendering multiple high-frequency data streams simultaneously—especially streaming video from the OSU underwater dock webcam alongside real-time time-series telemetry from CEOAS and SCADA servers—places a heavy load on the client browser. Without client-side downsampling or efficient state management, continuous polling or high-frequency WebSockets will cause UI stutter and high memory consumption, particularly on lower-end public kiosk tablets or mobile devices.
+- **Data Sandbox (Option A) & Dual-Mode (Option C):** Rendering multiple data streams simultaneously streaming video from the OSU underwater dock webcam alongside real-time time-series telemetry from CEOAS and SCADA servers could place a heavy load on any server. If we don't make specific optimizations, we might see some buffering or stuttering, especially on smaller mobile devices.
 
 - **Modular Learning (Option B):** By design, isolating views to a single stream or module per page load significantly reduces client-side resource consumption. Network requests are targeted only to the active module, preserving rendering performance.
 
@@ -61,9 +61,9 @@ Evaluating these options requires balancing public-facing usability against engi
 
 ### 2. Complexity
 
-- **Data Sandbox & Modular Learning (Options A & B):** Moderate complexity. Option A requires building robust multi-axis charting components and complex filtering logic. Option B requires authoring clear state machines for step-by-step educational flows, but keeps data views scoped.
+- **Data Sandbox & Modular Learning (Options A & B):** Moderate complexity. Option A requires building robust multi-axis charting components and filtering logic. Option B requires authoring clear state machines for step-by-step educational flows, but keeps data views scoped and rendered seperately.
 
-- **Dual-Mode (Option C):** **High complexity.** Maintaining two distinct UI paradigms (a simplified pedagogical interface and an unconstrained telemetry dashboard) effectively doubles the frontend component tree, routing logic, and state management overhead.
+- **Dual-Mode (Option C):** **High complexity.** Maintaining two distinct UIs effectively doubles the frontend component tree, routing logic, and state management overhead.
 
 - **Do Nothing (Option D):** n/a
 
