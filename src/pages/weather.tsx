@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type WeatherRecord from "../types/weathertype";
 import { fetchAllWeather } from "../util/fetchWeather";
 import { dailyAverages, weeklyAverages, monthlyAverages } from "../util/weatheravgs";
+import { WeatherChart } from "../charts/weatherCharts";
 
 export default function WeatherPage() {
   const [weather, setWeather] = useState<WeatherRecord[] | null>(null);
@@ -13,6 +14,7 @@ export default function WeatherPage() {
   const [showDailyAvg, setShowDailyAvg] = useState(false);
   const [showWeeklyAvg, setShowWeeklyAvg] = useState(false);
   const [showMonthlyAvg, setShowMonthlyAvg] = useState(false);
+  const [showChart, setShowChart] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -129,6 +131,14 @@ export default function WeatherPage() {
                 ))}
             </div>
         )}
+      <button onClick={() => setShowChart(!showChart)} className="mt-4 cursor-pointer rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600">
+        {showChart ? "Hide" : "Show"} Weather Chart
+      </button>
+      {showChart && weather && (
+        <div className="mt-4">
+          <WeatherChart records={weather} dataKey="AvgAT" label="Air Temperature" unit="°F" range="day" />
+        </div>
+      )}
 
       <button
         onClick={() => {
