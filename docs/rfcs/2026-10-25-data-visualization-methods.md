@@ -91,7 +91,7 @@ The benefit of this approach is simplicity, requiring very little effort to exec
 
 I would recommend going with option A. Though it is the more complex option, it is the one that best aligns with the goals and outcomes that we have determined for the project, especially in relation to the educational nature of the site. The level of complexity and cost, though higher than the other options, are still manageable under the constraints we have been given for time and resources. This approach emphaizes curiousity and exploration of the data for people of all ages.
 
-In order to verify the success of this approach, we should define clear learning outcomes and criteria for meeting the educational requirement that are specific and actionable. We can then analyze our final product against those requirements to verify that we met them all. Performing user tests in classrooms or at the HMSC is something that we have discussed as well, in order to get feedback from real users.
+In order to verify the success of this approach, we should define clear learning outcomes and criteria for meeting the educational requirement that are specific and actionable. We can then analyze our final product against those requirements to verify that we met them all. We are planning to conduct user testing to verify the effectiveness of the project and identify areas of improvement. This will include live demos for HMSC visitors, whose interactions with the tool will be observed and metrics such as interaction length and learning content engagement will be measured. Surveys for user feedback may also be used as a tool for identifying improvements.
 
 ## Constraints
 
