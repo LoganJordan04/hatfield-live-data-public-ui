@@ -8,13 +8,27 @@ The Hatfield Marine Science Center hosts four live data streams on various serve
 
 - FR-1 (Must: it is part of the UI that our displayed data streams will be accessed and built from): A user sees a graphic map of the Hatfield Marine Science Center when they first access the website. Acceptance: The map is visible on the website.
 
+- FR-2 (Should: it makes it easier to navigate the map): A user can navigate the map using buttons and their cursor. Acceptance: The user can zoom in, zoom out, reset the view, and drag around on the map to look around and see points of interest. 
+
+- FR-3 (Must: it is one of the required data streams to display): A user can see relevant data from the Weather Station at the HMSC. Acceptance: A user can click a button on the map to see the Weather Station data, as well as daily averages, weekly averages, monthly averages, and a weather chart. 
+
+- FR-4 (Must: it is one of the required data streams to display): A user can see the live Youtube video from the Underwater Dock Webcam at the HMSC. Acceptance: A user can click a button on the map to see the Underwater Dock Webcam, with its feed shown through a live Youtube video, as well as see some information about the camera.
+
 ## Non-functional requirements
 
 - NFR-1 (Should: it is frustrating to use a slow website): The website and its elements loads in under 2 seconds on any Wi-Fi network.
 
+- NFR-2 (Must: it is the primary way to interact with websites): The website and its features are all able to be interacted with through touchpad/mouse clicks.
+
+- NFR-3 (Should: access to data streams should be fast to retain engagement): Clicking any data stream button loads all of the relevant information and data within 2 seconds on any Wi-Fi network.
+
 ## Constraints
 
 - C-1: The map of the Hatfield Marine Science Center comes from our project partner, Marnie Zirbel.
+
+- C-2: The current data streams on the website were specified by Marnie.
+
+- C-3: Access to the data streams' data was specified by Marnie, since the HMSC has dock instruments that collect the data that she manages.
 
 ## Success metrics
 
@@ -30,8 +44,12 @@ The Hatfield Marine Science Center hosts four live data streams on various serve
 
 - NG-2: Creating a mobile app in addition to a website.
 
+- NG-3: Showcasing other aspects and exhibits of the HMSC besides the data streams.
+
+- NG-4: Using drone footage to display a photorealistic map of the HMSC as a toggleable option between the current cartoon map graphic.
+
 ## Open questions
 
 - OQ-1: How do we access the Pumped Seawater SCADA data stream, through a website or API? Owner: Logan Jordan, we've already asked our project partner about it and are hoping to get access to it by the end of fall term.
 
-- OQ-2: Is there a public API for the Weather Station data stream, or will we have to web scrape the data? Owner: Levi Cook, we've already reached out to our project partner and another person in charge of that data stream, and we are hoping for an answer by the end of fall term.
+- OQ-2: What feedback do you have for our Figma mockups, as well as our progress so far on our website? Owner: Alexander Jiang, our project partner is currently on medical leave so we're hoping to get feedback from her as soon as she comes back.
