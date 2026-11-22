@@ -17,17 +17,15 @@
 
 ## Problem and Context
 
-One of the core purposes of this website is to present various data streams to the user in an accessible and easy-to-understand manner, so determining the best method for presenting and visualizing that data is a key decision. Each data stream comes from a different source and consists of different types of data, so the best method for each individual stream may vary, but it is still central to the design and implementation process for each one.
+The Hatfield Live Data Public UI is an informational and educational tool designed for the Hatfield Marine Science Center, with the goal of providing a unified location for HMSC visitors and the general public to learn about HMSC as well as the Yaquina Bay Estuary around it. The website consists of an interactive map of the HMSC with clickable 'Modules' that present information about a topic as well as a learning activity relating to the content. The four core modules outlined in the project will each display a live data stream, which are all being collected at the HMSC, to the user in an accessible and easy-to-understand manner. These data streams and the science surrounding them are key parts of the work that Hatfield does, so determining the best method for presenting and visualizing that data is a key decision. The four data streams include local weather data, seawater quality in the estuary, underwater camera footage, and measurements of seawater pumped in to the HMSC. Each data stream comes from a different source and consists of different formats/types of data, so the best method for each individual stream may vary, but it is still central to the design and implementation process for each one.
 
 The decision of what visualization method to choose should be done now, before the implementation process begins, because attempting to make a change down the line during implementation would likely mean a major rework of the module. The bulk of each module's structure will be comprised of the data stream. If the team does nothing, the likely outcome would be to rely on whatever pre-existing source or raw data input we have access to. The data would be presented to the user in whatever state we received it in, which in all likeihood would be unintuitive or impossible to read or understand.
 
 ## Options
 
-At least three options, **including "do nothing"**. Give each option a short name, an account of its real costs, and the condition under which it would be the right choice. An option with no such condition is a strawman, and a strawman weakens the whole document.
-
 ### Option A: Custom Interactive Visualizations
 
-This scenario would involve creating custom and interactive visualizations for each data stream that formats the data as well as adding styling and options for user input or manipulation. This would likely involve the utilization of chart generation libraries such as Recharts to design graphs for the data, allowing users to view changes in data over time and compare multiple parameters (e.g. water depth and temperature) to look for relationships between them.
+This scenario would involve creating custom and interactive visualizations for each data stream that formats the data as well as adding styling and options for user input or manipulation. This would likely involve the utilization of chart generation libraries such as Recharts to design graphs for the data, allowing users to view changes in data over time and compare multiple parameters (e.g. water depth and temperature) to look for relationships between them. 
 
 This option would by far require the highest cost in terms of development effort and maintenance, requiring extra time be put towards designing custom visualizations for each module. The benefit is that each module can be tailored and presented in a way that is accessible, engaging, and readable for users of all experience levels, and would be the right choice for emphasizing the learning objectives and accessibility of the site.
 
@@ -91,15 +89,11 @@ The benefit of this approach is simplicity, requiring very little effort to exec
 
 ## Recommendation and Verification Plan
 
-Which option you propose and why it wins the analysis above. Then, concretely: how will the team know it worked? List the tests, metrics, or acceptance criteria that would detect failure, and when they will be checked.
-
 I would recommend going with option A. Though it is the more complex option, it is the one that best aligns with the goals and outcomes that we have determined for the project, especially in relation to the educational nature of the site. The level of complexity and cost, though higher than the other options, are still manageable under the constraints we have been given for time and resources. This approach emphaizes curiousity and exploration of the data for people of all ages.
 
 In order to verify the success of this approach, we should define clear learning outcomes and criteria for meeting the educational requirement that are specific and actionable. We can then analyze our final product against those requirements to verify that we met them all. Performing user tests in classrooms or at the HMSC is something that we have discussed as well, in order to get feedback from real users.
 
 ## Constraints
-
-Licensing, data use, IP, and the partner confidentiality boundary as they bear on this decision. If none apply, say so explicitly and briefly explain why.
 
 Constraints on the method of visualizing the data include the method by which we are able to receive the data, and the performance of the collection instruments. Because none of this data is being collected by our team, if the source or the organization behind it were to go down or change, we would need to adapt accordingly.
 
