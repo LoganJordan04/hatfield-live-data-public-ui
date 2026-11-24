@@ -1,10 +1,14 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { ChartNoAxesCombined } from "lucide-react";
 
-export default function LiveDataButton() {
+type LiveDataButtonProps = {
+  dataPagePath: string;
+};
+
+export default function LiveDataButton({ dataPagePath }: LiveDataButtonProps) {
   const navigate = useNavigate();
   const location = useLocation();
-  const selected = location.pathname === "/ModulePage";
+  const selected = location.pathname === dataPagePath;
 
   return (
     <button
@@ -12,7 +16,7 @@ export default function LiveDataButton() {
       aria-label="Live data"
       aria-pressed={selected}
       onClick={() => {
-        navigate("/ModulePage");
+        navigate(dataPagePath);
       }}
       className={`inline-flex items-center justify-center gap-2 px-6 py-4 relative rounded-lg overflow-hidden border border-solid border-border cursor-pointer transition-colors ${
         selected ? "bg-orange hover:bg-[#b53507]" : "bg-white hover:bg-gray-200"

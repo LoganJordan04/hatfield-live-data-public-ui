@@ -1,7 +1,12 @@
 import OpenLearningModuleButton from "../buttons/OpenLearningModuleButton";
 import { BookOpen } from "lucide-react";
 
-export default function WhatDoesThisMeanContainer() {
+type WhatDoesThisMeanContainerProps = {
+  description?: string;
+  learningPagePath: string;
+};
+
+export default function WhatDoesThisMeanContainer({ description, learningPagePath }: WhatDoesThisMeanContainerProps) {
   return (
     <main
       aria-labelledby="what-does-this-mean-container"
@@ -17,15 +22,14 @@ export default function WhatDoesThisMeanContainer() {
             What does this mean?
           </h2>
         </div>
-        <p className="relative w-fit [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-nowrap">
-          Plain language explanation here
+        <p className="relative w-fit [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-normal">
+          {description}
         </p>
-        <p className="relative w-fit [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-nowrap">
+        <p className="relative w-fit [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-xl tracking-[0] leading-[29.0px] whitespace-normal">
           Learn more
         </p>
       </header>
-
-      <OpenLearningModuleButton />
+      <OpenLearningModuleButton learningPagePath={learningPagePath} />
     </main>
   );
 }

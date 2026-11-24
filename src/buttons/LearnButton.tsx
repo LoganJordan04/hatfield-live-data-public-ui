@@ -1,17 +1,21 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { BookOpen } from "lucide-react";
 
-export default function LearnButton() {
+type LearnButtonProps = {
+  learningPagePath: string;
+};
+
+export default function LearnButton({ learningPagePath }: LearnButtonProps) {
   const navigate = useNavigate();
   const location = useLocation();
-  const selected = location.pathname === "/LearningPage";
+  const selected = location.pathname === learningPagePath;
 
   return (
     <button
       type="button"
       aria-label="Learn"
       aria-pressed={selected}
-      onClick={() => navigate("/LearningPage")}
+      onClick={() => navigate(learningPagePath)}
       className={`inline-flex items-center justify-center gap-2 px-6 py-4 relative rounded-lg overflow-hidden border border-solid border-border cursor-pointer transition-colors ${
         selected ? "bg-orange hover:bg-[#b53507]" : "bg-white hover:bg-gray-200"
       }`}

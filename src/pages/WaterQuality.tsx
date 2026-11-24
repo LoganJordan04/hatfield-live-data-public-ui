@@ -1,35 +1,15 @@
-import { useEffect, useState } from "react";
+import WaterQualityCharts from "../charts/WaterQualityCharts";
+import ModulePage from "../components/ModulePage";
 
 export default function WaterQuality() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    // Fetch data from the CORIOLIX API endpoint
-    const fetchData = async () => {
-      try {
-        // Placeholder request fetching the last item from the SensorMixLg3 model
-        const response = await fetch(
-          "https://hmsc-cms.dri.oregonstate.edu/api/decimateData/?model=SensorMixLg3&last_item=1&format=json",
-        );
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div>
-      <h1>Yaquina Water Quality Data</h1>
-      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
-      <button
-        onClick={() => (window.location.href = "/")}
-        className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
-      >
-        Home
-      </button>
-    </div>
+    <ModulePage
+      title="Water Quality"
+      moduleDescription="Explore the water quality data collected from the Yaquina Bay estuary."
+      learningDescription="Is there a relationship between water depth and salinity? How might this affect the organisms that live in the estuary?"
+      content={<WaterQualityCharts />}
+      dataPagePath="/WaterQuality"
+      learningPagePath="/WaterQuality/learning"
+    />
   );
 }
