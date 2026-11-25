@@ -20,7 +20,15 @@ function renderRoute(path: string) {
 }
 
 vi.mock("../util/fetchWeather", () => ({
-  fetchLatestWeather: vi.fn().mockResolvedValue(null),
+  fetchAllWeather: vi.fn().mockResolvedValue([]),
+}));
+
+vi.mock("../map/useBuildingAnchors", () => ({
+  useBuildingAnchors: vi.fn(() => ({
+    "/Weather": { x: 100, y: 100 },
+    "/WaterQuality": { x: 200, y: 200 },
+    "/DockWebcam": { x: 300, y: 300 },
+  })),
 }));
 
 describe("Route Tests", () => {

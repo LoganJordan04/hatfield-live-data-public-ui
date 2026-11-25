@@ -22,7 +22,7 @@ export function useBuildingAnchors(
     const svgBounds = svg.getBoundingClientRect();
     const scaleX = svgBounds.width / mapWidth;
     const scaleY = svgBounds.height / mapHeight;
-    if (scaleX === 0 || scaleY === 0) return;
+    if (!Number.isFinite(scaleX) || !Number.isFinite(scaleY) || scaleX === 0 || scaleY === 0) return;
 
     const next: Record<string, AnchorPosition> = {};
     for (const anchor of anchors) {
@@ -34,15 +34,12 @@ export function useBuildingAnchors(
 
       // Use rendered bounds so nested SVG transforms match the visible building.
       const bounds = building.getBoundingClientRect();
+      const x =
+        (bounds.left + bounds.width / 2 - svgBounds.left) / scaleX + ((anchor.offsetX ?? 0) / viewBoxWidth) * mapWidth;
+      const y = (bounds.bottom - svgBounds.top) / scaleY + ((anchor.offsetY ?? 0) / viewBoxHeight) * mapHeight;
+      if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
 
-      next[anchor.moduleRoute] = {
-        x:
-          (bounds.left + bounds.width / 2 - svgBounds.left) / scaleX +
-          ((anchor.offsetX ?? 0) / viewBoxWidth) * mapWidth,
-        y:
-          (bounds.bottom - svgBounds.top) / scaleY +
-          ((anchor.offsetY ?? 0) / viewBoxHeight) * mapHeight,
-      };
+      next[anchor.moduleRoute] = { x, y };
     }
     setPositions(next);
   }, [anchors, mapHeight, mapWidth, svgContainerRef, viewBoxHeight, viewBoxWidth]);
