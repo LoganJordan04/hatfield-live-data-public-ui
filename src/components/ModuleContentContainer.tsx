@@ -7,19 +7,16 @@ type ModuleContentContainerProps = {
 export default function ModuleContentContainer({ DataTitle, content }: ModuleContentContainerProps) {
   return (
     <main
-      className="flex min-h-[32rem] w-full flex-col items-start gap-4 overflow-hidden rounded-2xl bg-white p-6 lg:min-h-[calc(100vh-148px)]"
+      className="content-card flex min-h-128 w-full flex-col items-start gap-4 overflow-hidden"
       aria-labelledby="data-title"
     >
       <div className="relative flex w-full flex-[0_0_auto] items-center justify-around">
-        <h2
-          id="data-title"
-          className="relative mt-[-1.00px] w-fit whitespace-nowrap [font-family:'Open_Sans-Bold',Helvetica] text-[32px] font-bold leading-[45px] tracking-[0] text-black"
-        >
+        <h2 id="data-title" className="w-full wrap-break-word text-3xl font-bold text-black">
           {DataTitle}
         </h2>
       </div>
       <div
-        className="relative flex w-full flex-1 flex-col items-center justify-center gap-2 self-stretch overflow-hidden rounded-lg bg-[#f7f5f5]"
+        className="relative flex w-full flex-1 flex-col items-center justify-center gap-2 self-stretch overflow-hidden rounded-lg bg-bg"
         role="region"
         aria-label="Data content"
       >

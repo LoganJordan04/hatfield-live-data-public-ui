@@ -5,10 +5,10 @@ export default function ReturnToMapButton() {
   return (
     <Link
       to="/"
-      className="inline-flex items-center justify-center gap-2.5 px-6 py-4 relative bg-white rounded-lg overflow-hidden border border-solid border-border cursor-pointer hover:bg-gray-100"
+      className="ui-button ui-button-secondary"
     >
       <ArrowLeft aria-hidden="true" className="text-body" size={20} />
-      <span className="relative w-fit -mt-px font-normal text-body text-xl tracking-normal leading-7.25 whitespace-nowrap">
+      <span className="whitespace-nowrap">
         Return to map
       </span>
     </Link>

@@ -5,6 +5,9 @@
   --color-body: #423e3c;
   --color-bg: #f7f5f5;
   --color-border: #e9e5e4;
+  --color-rogue-wave: #0d5257;
+  --color-rogue-wave-light: #ddebed;
+  --color-orange-hover: #b53507;
 }
 
 @layer base {
@@ -38,5 +41,27 @@
     html {
       scroll-behavior: auto;
     }
+  }
+}
+
+@layer components {
+  .ui-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-border px-4 py-3 text-base transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-body;
+  }
+
+  .ui-button-xl {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 px-6 py-4 relative rounded-lg overflow-hidden border border-solid border-border cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-body;
+  }
+
+  .ui-button-secondary {
+    @apply bg-white text-body hover:bg-gray-100;
+  }
+
+  .ui-button-primary {
+    @apply border-orange bg-orange text-white hover:bg-orange-hover;
+  }
+
+  .content-card {
+    @apply min-w-0 rounded-2xl border border-border bg-white p-4 sm:p-6;
   }
 }

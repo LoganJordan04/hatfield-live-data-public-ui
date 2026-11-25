@@ -9,15 +9,15 @@ export default function LessonProgress() {
   return(
     <main
       aria-labelledby="lesson-progress-title"
-      className="flex flex-col w-[420px] items-start gap-4 p-6 relative bg-white rounded-2x1 border border-solid border-[#e9e5e4]"
+      className="content-card flex w-full flex-col items-start gap-4"
     >
       <h2
         id="lesson-progress-title"
-        className="relative w-fit mt-[-1.00px] [font-family:'Open_Sans-Bold',Helvetica] font-bold text-black text-xl tracking-[0] leading-[29.0px] whitespace-nowrap"
+        className="text-xl font-bold text-black"
       >
         Lesson progress
       </h2>
-      <p className="relative w-fit [font-family:'Open_Sans-Regular',Helvetica] font-normal text-[#423e3c] text-base tracking-[0] leading-[23.2px] whitespace-nowrap">
+      <p className="text-base text-body">
         Step 1 of 3
       </p>
       <div
@@ -33,7 +33,7 @@ export default function LessonProgress() {
             key={`lesson-step-${index + 1}`}
             aria-hidden="true"
             className={`relative flex-1 grow h-1.5 rounded-[3px] ${
-              step.completed ? "bg-[#d73f09]" : "bg-[#e9e5e4]"
+              step.completed ? "bg-orange" : "bg-border"
             }`}
           />
         ))}

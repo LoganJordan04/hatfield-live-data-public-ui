@@ -75,28 +75,71 @@ export default function WeatherPage() {
         )
       ) : latestWeather ? (
         <div>
-        <div>
-          <p><strong>Timestamp:</strong> {latestWeather.TIMESTAMP}</p>
-          <p><strong>Average Wind Speed:</strong> {latestWeather.AWS} MPH</p>
-          <p><strong>Average Wind Direction:</strong> {latestWeather.AWD}°</p>
-          <p><strong>Wind Gust:</strong> {latestWeather.Gust} MPH</p>
-          <p><strong>Average Air Temperature:</strong> {latestWeather.AvgAT} °F</p>
-          <p><strong>Max Air Temperature:</strong> {latestWeather.MaxAT} °F</p>
-          <p><strong>Min Air Temperature:</strong> {latestWeather.MinAT} °F</p>
-          <p><strong>Average Relative Humidity:</strong> {latestWeather.AvgRH} %RH</p>
-          <p><strong>Barometric Pressure:</strong> {latestWeather.AvgBP} inHg</p>
-          <p><strong>Total Rainfall (10 min):</strong> {latestWeather.TotRN_5} in</p>
-          <p><strong>Daily Rainfall:</strong> {latestWeather.DailyRN} in</p>
-        </div>
-        <button onClick={() => {setShowDailyAvg(!showDailyAvg); setShowWeeklyAvg(false); setShowMonthlyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
-          {showDailyAvg ? "Hide" : "Show"} Daily Averages
-        </button>
-        <button onClick={() => {setShowWeeklyAvg(!showWeeklyAvg); setShowDailyAvg(false); setShowMonthlyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
-          {showWeeklyAvg ? "Hide" : "Show"} Weekly Averages
-        </button>
-        <button onClick={() => {setShowMonthlyAvg(!showMonthlyAvg); setShowDailyAvg(false); setShowWeeklyAvg(false);}} className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60">
-          {showMonthlyAvg ? "Hide" : "Show"} Monthly Averages
-        </button>
+          <div>
+            <p>
+              <strong>Timestamp:</strong> {latestWeather.TIMESTAMP}
+            </p>
+            <p>
+              <strong>Average Wind Speed:</strong> {latestWeather.AWS} MPH
+            </p>
+            <p>
+              <strong>Average Wind Direction:</strong> {latestWeather.AWD}°
+            </p>
+            <p>
+              <strong>Wind Gust:</strong> {latestWeather.Gust} MPH
+            </p>
+            <p>
+              <strong>Average Air Temperature:</strong> {latestWeather.AvgAT} °F
+            </p>
+            <p>
+              <strong>Max Air Temperature:</strong> {latestWeather.MaxAT} °F
+            </p>
+            <p>
+              <strong>Min Air Temperature:</strong> {latestWeather.MinAT} °F
+            </p>
+            <p>
+              <strong>Average Relative Humidity:</strong> {latestWeather.AvgRH} %RH
+            </p>
+            <p>
+              <strong>Barometric Pressure:</strong> {latestWeather.AvgBP} inHg
+            </p>
+            <p>
+              <strong>Total Rainfall (10 min):</strong> {latestWeather.TotRN_5} in
+            </p>
+            <p>
+              <strong>Daily Rainfall:</strong> {latestWeather.DailyRN} in
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              setShowDailyAvg(!showDailyAvg);
+              setShowWeeklyAvg(false);
+              setShowMonthlyAvg(false);
+            }}
+            className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60"
+          >
+            {showDailyAvg ? "Hide" : "Show"} Daily Averages
+          </button>
+          <button
+            onClick={() => {
+              setShowWeeklyAvg(!showWeeklyAvg);
+              setShowDailyAvg(false);
+              setShowMonthlyAvg(false);
+            }}
+            className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60"
+          >
+            {showWeeklyAvg ? "Hide" : "Show"} Weekly Averages
+          </button>
+          <button
+            onClick={() => {
+              setShowMonthlyAvg(!showMonthlyAvg);
+              setShowDailyAvg(false);
+              setShowWeeklyAvg(false);
+            }}
+            className="mr-2 cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-60"
+          >
+            {showMonthlyAvg ? "Hide" : "Show"} Monthly Averages
+          </button>
         </div>
       ) : (
         <p>No weather readings are available right now.</p>
@@ -111,27 +154,30 @@ export default function WeatherPage() {
           ))}
         </div>
       )}
-        {showWeeklyAvg && weeklyAvg && (
-            <div>
-                <h2>Weekly Averages</h2>
-                {Object.entries(weeklyAvg).map(([key, value]) => (
-                    <p key={key}>
-                      <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
-                    </p>
-                ))}
-            </div>
-        )}
-        {showMonthlyAvg && monthlyAvg && (
-            <div>
-                <h2>Monthly Averages</h2>
-                {Object.entries(monthlyAvg).map(([key, value]) => (
-                    <p key={key}>
-                      <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
-                    </p>
-                ))}
-            </div>
-        )}
-      <button onClick={() => setShowChart(!showChart)} className="mt-4 cursor-pointer rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600">
+      {showWeeklyAvg && weeklyAvg && (
+        <div>
+          <h2>Weekly Averages</h2>
+          {Object.entries(weeklyAvg).map(([key, value]) => (
+            <p key={key}>
+              <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
+            </p>
+          ))}
+        </div>
+      )}
+      {showMonthlyAvg && monthlyAvg && (
+        <div>
+          <h2>Monthly Averages</h2>
+          {Object.entries(monthlyAvg).map(([key, value]) => (
+            <p key={key}>
+              <strong>{key}:</strong> {value !== null ? value.toFixed(2) : "N/A"}
+            </p>
+          ))}
+        </div>
+      )}
+      <button
+        onClick={() => setShowChart(!showChart)}
+        className="mt-4 cursor-pointer rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+      >
         {showChart ? "Hide" : "Show"} Weather Chart
       </button>
       {showChart && weather && (
