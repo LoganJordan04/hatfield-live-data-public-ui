@@ -1,7 +1,10 @@
+import type { ReactNode } from "react";
+
 type ModuleContentContainerProps = {
   DataTitle: string;
+  content: ReactNode;
 };
-export default function ModuleContentContainer({ DataTitle }: ModuleContentContainerProps) {
+export default function ModuleContentContainer({ DataTitle, content }: ModuleContentContainerProps) {
   return (
     <main
       className="flex min-h-[32rem] w-full flex-col items-start gap-4 overflow-hidden rounded-2xl bg-white p-6 lg:min-h-[calc(100vh-148px)]"
@@ -20,7 +23,7 @@ export default function ModuleContentContainer({ DataTitle }: ModuleContentConta
         role="region"
         aria-label="Data content"
       >
-        <p>Graph or other content will go here</p>
+        <div className="h-full min-h-0 w-full flex-1">{content}</div>
       </div>
     </main>
   );

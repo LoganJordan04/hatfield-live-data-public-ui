@@ -22,7 +22,7 @@ export default function ModulePage({ title, description }: ModulePageProps) {
               <ReturnToMapButton />
               <ReturnToDataButton />
             </div>
-            <ModuleHeading title={title} description={description} />
+            <ModuleHeading title={title} description={description} dataPagePath="/ModulePage" learningPagePath="/LearningPage" />
             <LessonProgress />
           </aside>
           <div className="flex flex-col gap-6 min-w-0">

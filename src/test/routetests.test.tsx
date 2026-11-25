@@ -35,7 +35,13 @@ describe("Route Tests", () => {
 
   it("renders Water Quality page for /WaterQuality route", () => {
     renderRoute("/WaterQuality");
-    expect(screen.getByText(/Water Quality/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Water Quality", level: 1 }),
+    ).toBeInTheDocument();
+    const dataRegion = screen.getByRole("region", { name: "Data content" });
+    expect(dataRegion).toContainElement(
+      screen.getByRole("heading", { name: "Yaquina Water Quality Data" }),
+    );
   });
 
   it("renders Dock Webcam page for /DockWebcam route", () => {
